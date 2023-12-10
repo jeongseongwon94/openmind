@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
+import './styles/global.css';
+
 import HomePage from './pages/home/HomePage';
 import ListPage from './pages/list/ListPage';
 import PostPage from './pages/post/PostPage';

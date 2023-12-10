@@ -1,0 +1,84 @@
+:root {
+  /* common - color*/
+  --color-text-primary: var(--color-gray-60);
+  --color-text-secondary: var(--color-gray-40);
+  --color-text-selected: var(--color-blue-50);
+  --color-text-rejection: var(--color-red-50);
+
+  --color-border-primary: var(--color-gray-40);
+  --color-border-focusing: var(--color-brown-40);
+  --color-border-open: var(--color-gray-60);
+
+  --color-background-primary: var(--color-gray-10);
+  --color-background-text-area: var(--color-gray-20);
+
+  /* common - font-size */
+
+  /* Button */
+  --dark-button-default: var(--color-gray-40);
+  --dark-button-pressed: var(--color-brown-50);
+  --dark-button-inactivate: var(--color-brown-30);
+
+  --light-button-default: var(--color-brown-10);
+  --light-button-pressed: var(--color-brown-20);
+  --light-button-inactive: var(--color-brown-10);
+
+  --dark-button-border: var(--color-brown-50);
+  --light-button-border: var(--color-brown-40);
+  --light-button-border-inactive: var(--color-brown-30);
+
+  --dark-button-text: var(--color-gray-10);
+  --light-button-text: var(--color-brown-40);
+
+  --button-font-size-pc: var(--font-size-body3);
+  --button-font-size-mobile: var(--font-size-caption);
+
+  /* Badge */
+  --badge-active: var(--color-brown-40);
+  --badge-inactive: var(--color-gray-40);
+
+  /* Pagenation */
+  --pagenation-color-default: var(--color-gray-40);
+  --pagenation-color-hover: var(--color-gray-60);
+  --pagenation-color-selected: var(--color-brown-40);
+
+  --pagenation-size-pc: var(--font-size-body1);
+  --pagenation-size-mobile: var(--font-size-body3);
+
+  /* Colors */
+  --color-gray-10: #ffffff;
+  --color-gray-20: #f9f9f9;
+  --color-gray-30: #cfcfcf;
+  --color-gray-40: #818181;
+  --color-gray-50: #515151;
+  --color-gray-60: #000000;
+
+  --color-brown-10: #f5f1ee;
+  --color-brown-20: #e4d5c9;
+  --color-brown-30: #c7bbb5;
+  --color-brown-40: #542f1a;
+  --color-brown-50: #341909;
+
+  --color-blue-50: #1877f2;
+  --color-yellow-50: #fee500;
+  --color-red-50: #b93333;
+
+  /* Font-Size */
+  --font-size-h1: 4rem;
+  --font-size-h2: 3.2rem;
+  --font-size-h3: 2.4rem;
+  --font-size-body1: 2rem;
+  --font-size-body2: 1.8rem;
+  --font-size-body3: 1.6rem;
+  --font-size-caption: 1.4rem;
+
+  /* Font-weight */
+  --font-weight-bold: 700;
+  --font-weight-medium: 500;
+  --font-weight-regular: 400;
+
+  /* Box-Shwdow */
+  --box-shadow-1pt: 0px 4px 4px 0px rgba(140, 140, 140, 0.25);
+  --box-shadow-2pt: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  --box-shadow-3pt: 0px 16px 20px 0px rgba(48, 48, 48, 0.62);
+}
