@@ -19,11 +19,11 @@ const router = createBrowserRouter([
     element: <ListPage />,
   },
   {
-    path: '/post/{id}',
+    path: '/post/:id',
     element: <PostPage />,
   },
   {
-    path: 'post/{id}/answer',
+    path: 'post/:id/answer',
     element: <AnswerPage />,
   },
 ]);
