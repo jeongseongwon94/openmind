@@ -7,7 +7,7 @@ export default function ButtonFloating({ onClick, type }) {
   useEffect(() => {
     const handleResize = () => {
       const changeButtonText =
-        type === 'questionButton' ? (window.innerWidth <= 375 ? '질문 작성' : '질문 작성하기') : '삭제하기';
+        type === 'question' ? (window.innerWidth <= 375 ? '질문 작성' : '질문 작성하기') : '삭제하기';
 
       setButtonText(changeButtonText);
     };
@@ -19,10 +19,10 @@ export default function ButtonFloating({ onClick, type }) {
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, []);
+  }, [type]);
 
   return (
-    <button className={`${styles[type]}`} onClick={onClick}>
+    <button className={`${styles.button} ${styles[type]}`} onClick={onClick}>
       {buttonText}
     </button>
   );
