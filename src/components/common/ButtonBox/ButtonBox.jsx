@@ -1,10 +1,9 @@
 import styles from './ButtonBox.module.css';
 
-export default function ButtonBox({ onClick, children, className }) {
-  const CN = className;
+export default function ButtonBox({ handleButtonClick, children, className }) {
   return (
     <div>
-      <button className={`${styles[CN]}`} onClick={onClick}>
+      <button className={styles[`${className}`]} onClick={handleButtonClick}>
         {children}
       </button>
     </div>

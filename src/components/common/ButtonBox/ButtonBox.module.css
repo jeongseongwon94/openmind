@@ -1,5 +1,6 @@
-.GoQnAButton {
+.lightButton {
   display: inline-flex;
+  gap: 0.8rem;
   padding: 1.2rem 2.4rem;
   color: var(--color-brown-40);
   border: 0.1rem solid var(--color-brown-40);
@@ -8,21 +9,21 @@
   font-size: var(--font-size-16);
 }
 
-.GoQnAButton:hover {
+.lightButton:hover {
   border: 0.2rem solid var(--color-brown-40);
 }
 
-.GoQnAButton:active {
+.lightButton:active {
   border: 0.2rem solid var(--color-brown-40);
   background: var(--color-brown-20);
 }
 
-.GoQnAButton:disabled {
+.lightButton:disabled {
   border: 0.1rem solid var(--color-brown-30);
   color: var(--color-brown-30);
 }
 
-.ReceiveQnAButton {
+.darkButton {
   display: inline-flex;
   padding: 1.2rem 2.4rem;
   color: var(--color-gray-10);
@@ -31,21 +32,21 @@
   font-size: var(--font-size-16);
 }
 
-.ReceiveQnAButton:hover {
+.darkButton:hover {
   border: 0.2rem solid var(--color-brown-50);
 }
 
-.ReceiveQnAButton:active {
+.darkButton:active {
   background: var(--color-brown-50);
 }
 
-.ReceiveQnAButton:disabled {
+.darkButton:disabled {
   background: var(--color-brown-30);
 }
 
 @media screen and (max-width: 375px) {
-  .GoQnAButton,
-  .ReceiveQnAButton {
+  .lightButton,
+  .darkButton {
     height: 3.4rem;
     padding: 0.8rem 1.2rem;
   }
