@@ -6,3 +6,9 @@
   border: 1px solid var(--color-gray-40);
   border-radius: 1.6rem;
 }
+
+@media screen and (max-width: 375px) {
+  .wrap {
+    padding: 1.6rem;
+  }
+}

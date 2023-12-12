@@ -3,11 +3,10 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  color: var(--color-gray-40);
   font-size: var(--font-size-16);
   font-family: Pretendard;
   font-weight: var(--font-weight-regular);
-  filter: invert(54%) sepia(0%) saturate(7500%) hue-rotate(91deg) brightness(90%) contrast(59%);
+  color: var(--color-gray-40);
 }
 
 .questionWrap {
@@ -19,5 +18,11 @@
 .messagesIcon {
   width: 1.8rem;
   height: 1.8rem;
-  color: var(--color-gray-40);
+  filter: invert(54%) sepia(0%) saturate(7500%) hue-rotate(91deg) brightness(90%) contrast(59%);
+}
+
+@media screen and (max-width: 375px) {
+  .wrap {
+    font-size: var(--font-size-14);
+  }
 }
