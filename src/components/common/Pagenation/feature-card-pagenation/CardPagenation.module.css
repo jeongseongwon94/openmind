@@ -1,0 +1,22 @@
+.wrap {
+  display: flex;
+  width: 4rem;
+  height: 4rem;
+}
+
+button {
+  color: var(--color-gray-40);
+  font-size: 2rem;
+  font-family: Actor;
+  font-weight: var(--font-weight-regular);
+}
+
+button:hover {
+  color: var(--color-gray-60);
+}
+
+@media screen and (max-width: 375px) {
+  button {
+    font-size: 1.6rem;
+  }
+}
