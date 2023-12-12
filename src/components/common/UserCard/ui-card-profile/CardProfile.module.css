@@ -1,0 +1,15 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.2rem;
+  width: 100%;
+  color: var(--color-gray-60);
+  font-size: var(--font-size-20);
+  font-family: Pretendard;
+  font-weight: var(--font-weight-regular);
+}
+
+.profileImage {
+  width: 6rem;
+  height: 6rem;
+}
