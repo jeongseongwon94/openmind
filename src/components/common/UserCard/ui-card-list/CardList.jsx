@@ -1,5 +1,6 @@
 import styles from './CardList.module.css';
 
-export default function CardList({ children }) {
-  return <div className={styles.wrap}>{children}</div>;
+export default function CardList({ children, className }) {
+  const layout = styles[className];
+  return <div className={layout}>{children}</div>;
 }

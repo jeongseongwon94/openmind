@@ -6,7 +6,7 @@ export default function ListPage() {
   const arr = [...Array(8).keys()];
 
   return (
-    <CardList>
+    <CardList className='wrap'>
       {arr?.map((data) => (
         <ReadOnlyCard key={data} {...data} />
       ))}
