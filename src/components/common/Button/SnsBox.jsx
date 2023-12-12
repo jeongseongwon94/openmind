@@ -1,13 +1,11 @@
-// sns를 리스트로 받아와 추가할 페이지
-
 import KakaotalkIcon from '../../../images/kakaoYellow.svg';
 import FacebookIcon from '../../../images/facebookBlue.svg';
-import styles from './Sns.module.css';
+import styles from './SnsBox.module.css';
 
-export default function Sns() {
+export default function SnsBox() {
   const snsList = SNSList.map(({ title, link, imageSrc, altMessage }) => (
     <li key={title}>
-      <SNS link={link} src={imageSrc} alt={altMessage} />
+      <SNS link={link} imageSrc={imageSrc} altMessage={altMessage} />
     </li>
   ));
 
