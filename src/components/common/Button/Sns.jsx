@@ -1,18 +1,18 @@
-import React from 'react';
-import Link from '../../../images/linkBrown.png';
-import Kakaotalk from '../../../images/kakaoYellow.svg';
-import Facebook from '../../../images/facebookBlue.svg';
-import styles from './SnsBox.module.css';
+// sns를 리스트로 받아와 추가할 페이지
 
-export default function SnsBox() {
+import KakaotalkIcon from '../../../images/kakaoYellow.svg';
+import FacebookIcon from '../../../images/facebookBlue.svg';
+import styles from './Sns.module.css';
+
+export default function Sns() {
   const snsList = SNSList.map(({ title, link, imageSrc, altMessage }) => (
     <li key={title}>
-      <SNS link={link} imageSrc={imageSrc} altMessage={altMessage} />
+      <SNS link={link} src={imageSrc} alt={altMessage} />
     </li>
   ));
 
   return (
-    <div className={styles.snsBox}>
+    <div>
       <ul className={styles.snsContainer}>{snsList}</ul>
     </div>
   );
@@ -30,21 +30,15 @@ function SNS({ link, imageSrc, altMessage }) {
 
 const SNSList = [
   {
-    title: 'link',
-    link: 'https://',
-    imageSrc: Link,
-    altMessage: '사용자의 질문 페이지 링크를 복사하는 아이콘',
-  },
-  {
-    title: 'link',
+    title: 'kakaotalk',
     link: 'https://www.kakaocorp.com/page/',
-    imageSrc: Kakaotalk,
+    imageSrc: KakaotalkIcon,
     altMessage: '카카오톡 공유 페이지로 이동하는 카카오톡 아이콘',
   },
   {
     title: 'facebook',
     link: 'https://www.facebook.com/',
-    imageSrc: Facebook,
+    imageSrc: FacebookIcon,
     altMessage: '페이스북 공유 페이지로 이동하는 페이스북 아이콘',
   },
 ];
