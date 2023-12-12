@@ -1,6 +1,6 @@
-import styles from './QnAButton.module.css';
+import styles from './ButtonBox.module.css';
 
-export default function QnAButton({ onClick, children, className }) {
+export default function ButtonBox({ onClick, children, className }) {
   const CN = className;
   return (
     <div>
