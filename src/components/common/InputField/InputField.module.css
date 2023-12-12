@@ -1,0 +1,33 @@
+.inputContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  max-width: 33.6rem;
+  padding: 1.2rem 1.6rem;
+  border: 1px solid var(--color-border-primary);
+  border-radius: 0.8rem;
+}
+
+.inputContainer:focus-within {
+  border: 1px solid var(--color-border-focusing);
+}
+
+.icon {
+  width: 2rem;
+}
+
+.input {
+  width: calc(100% - 2.4rem);
+  border: none;
+  color: var(--color-text-primary);
+  font-size: var(--font-size-16);
+}
+
+.input::placeholder {
+  color: var(--color-text-secondary);
+}
+
+.input:focus {
+  outline: none;
+  color: var(--color-text-secondary);
+}
