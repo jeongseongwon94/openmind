@@ -3,24 +3,18 @@ import FacebookIcon from '../../../images/facebookBlue.svg';
 import styles from './SnsBox.module.css';
 
 export default function SnsBox() {
-  const snsList = SNSList.map(({ title, link, imageSrc, altMessage }) => (
-    <li key={title}>
-      <SNS link={link} imageSrc={imageSrc} altMessage={altMessage} />
-    </li>
-  ));
-
   return (
     <div>
-      <ul className={styles.snsContainer}>{snsList}</ul>
+      <ul className={styles.snsContainer}>
+        {SNSList.map(({ title, link, imageSrc, altMessage }) => (
+          <li key={title}>
+            <a href={link} target="_blank" rel="noreferrer noopener">
+              <img src={imageSrc} alt={altMessage} />
+            </a>
+          </li>
+        ))}
+      </ul>
     </div>
-  );
-}
-
-function SNS({ link, imageSrc, altMessage }) {
-  return (
-    <a href={link} target="_blank" rel="noreferrer noopener">
-      <img src={imageSrc} alt={altMessage} />
-    </a>
   );
 }
 
