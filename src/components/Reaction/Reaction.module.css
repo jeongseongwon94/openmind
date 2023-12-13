@@ -9,7 +9,6 @@
   gap: 0.6rem;
   color: var(--color-text-secondary);
   filter: invert(55%) sepia(3%) saturate(7%) hue-rotate(358deg) brightness(92%) contrast(89%);
-  font-family: Pretendard;
   font-size: var(--font-size-14);
   font-weight: var(--font-weight-medium);
   line-height: 1.8rem;
