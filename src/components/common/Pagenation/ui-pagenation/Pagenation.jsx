@@ -1,7 +1,7 @@
 import { pageArrayInit } from './util';
 import styles from './Pagenation.module.css';
 
-export default function Pagenation({ total, handleChangeValue }) {
+export default function Pagenation({ current, total, handleChangeValue }) {
   const pageArray = pageArrayInit(total);
 
   return (
@@ -9,10 +9,9 @@ export default function Pagenation({ total, handleChangeValue }) {
       {pageArray.map((page) => (
         <button
           key={page}
-          onClick={(e) => handleChangeValue(e.target.value)}
-          onMouseEnter={(e) => handleChangeValue(e.target.value)}
+          onClick={(e) => handleChangeValue(page)}
           value={page}
-          className={styles.pageNum}
+          className={`${styles.pageNum} ${current === page ? styles.pageNumActive : ''}`}
         >
           {page}
         </button>
