@@ -1,33 +1,13 @@
 .button {
+  width: 20.8rem;
+  height: 5.4rem;
   padding: 1.2rem 2.4rem;
   border: none;
   border-radius: 20rem;
   background: var(--color-border-focusing);
   box-shadow: var(--box-shadow-2pt);
   color: var(--color-background-primary);
-  flex-shrink: 0;
-}
-
-.questionButton {
-  width: 20.8rem;
-  height: 5.4rem;
   font-family: Actor;
   font-size: var(--font-size-20);
-
-  @media (max-width: 375px) {
-    width: auto;
-    font-family: Pretendard;
-  }
-}
-
-.deleteButton {
-  width: auto;
-  height: auto;
-  font-family: Pretendard;
-  font-size: 1.5rem;
-
-  @media (max-width: 375px) {
-    padding: 0.8rem 1.7rem;
-    font-size: 1rem;
-  }
+  flex-shrink: 0;
 }
