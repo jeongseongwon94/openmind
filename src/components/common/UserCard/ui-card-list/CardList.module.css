@@ -1,7 +1,0 @@
-.wrap {
-  display: grid;
-  grid-template-columns: repeat(4, 22rem);
-  grid-template-rows: repeat(2, 18.7rem);
-  gap: 2rem;
-  margin: 0 auto;
-}
