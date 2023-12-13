@@ -5,7 +5,7 @@ export default function App() {
   return (
     <div className={styles.home}>
       home
-      <ShareBox></ShareBox>
+      <ShareBox />
     </div>
   );
 }
