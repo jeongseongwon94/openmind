@@ -1,6 +1,7 @@
 .textarea {
-  width: 33.6rem;
-  height: 14rem;
+  width: 100%;
+  max-width: 33.6rem;
+  max-height: 14rem;
   padding: 1.6rem;
   resize: none;
   background: var(--color-background-text-area);
