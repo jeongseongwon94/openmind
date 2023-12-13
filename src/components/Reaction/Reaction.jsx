@@ -3,8 +3,8 @@ import thumbsDown from '../../assets/icons/thumbsDown.svg';
 import styles from './Reaction.module.css';
 
 export default function Reaction({ handleButtonClick, like, dislike }) {
-  const likeStatus = like === 0 ? `좋아요` : `좋아요 ${like}`;
-  const dislikeStatus = dislike === 0 ? `싫어요` : `싫어요 ${dislike}`;
+  const likeStatus = `좋아요 ${like === 0 ? '' : like}`;
+  const dislikeStatus = `싫어요 ${dislike === 0 ? '' : dislike}`;
 
   return (
     <div className={styles.reaction}>
