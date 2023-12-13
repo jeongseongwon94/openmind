@@ -43,6 +43,8 @@
 
 .button:active {
   color: var(--color-blue-50);
+  background: var(--color-gray-10);
+  background-clip: content-box;
   .buttonImage {
     filter: invert(38%) sepia(96%) saturate(3474%) hue-rotate(202deg) brightness(98%) contrast(94%);
   }
