@@ -1,19 +1,19 @@
 import { pageArrayInit } from './util';
+import styles from './Pagenation.module.css';
 
 export default function Pagenation({ total, handleChangeValue }) {
   const pageArray = pageArrayInit(total);
 
-  const onClick = (e) => {
-    handleChangeValue(e.target.value);
-  };
-  const onEnter = (e) => {
-    handleChangeValue(e.target.value);
-  };
-
   return (
     <>
       {pageArray.map((page) => (
-        <button key={page} onClick={onClick} onMouseEnter={onEnter} value={page}>
+        <button
+          key={page}
+          onClick={(e) => handleChangeValue(e.target.value)}
+          onMouseEnter={(e) => handleChangeValue(e.target.value)}
+          value={page}
+          className={styles.pageNum}
+        >
           {page}
         </button>
       ))}

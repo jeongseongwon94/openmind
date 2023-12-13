@@ -1,0 +1,16 @@
+.pageNum {
+  color: var(--color-gray-40);
+  font-size: 2rem;
+  font-family: Actor;
+  font-weight: var(--font-weight-regular);
+}
+
+.pageNum:hover {
+  color: var(--color-gray-60);
+}
+
+@media screen and (max-width: 375px) {
+  .pageNum {
+    font-size: 1.6rem;
+  }
+}

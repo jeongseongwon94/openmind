@@ -1,18 +1,25 @@
-export default function PagenationWrap({ children, start, end, handleOnClick, handleOnEnter }) {
-  const onClick = (e) => {
-    handleOnClick(e.target.value);
-  };
-  const onEnter = (e) => {
-    handleOnEnter(e.target.value);
-  };
+import styles from './PagenationWrap.module.css';
 
+export default function PagenationWrap({ children, start, end, handleOnClick, handleOnEnter }) {
   return (
     <>
-      <button onClick={onClick} onMouseEnter={onEnter} value={start}>
+      <button
+        onClick={(e) => handleOnClick(e.target.value)}
+        onMouseEnter={(e) => handleOnEnter(e.target.value)}
+        value={start}
+        className={styles.pageNumWrap}
+      >
         {start}
       </button>
+
       {children}
-      <button onClick={onClick} onMouseEnter={onEnter} value={end}>
+
+      <button
+        onClick={(e) => handleOnClick(e.target.value)}
+        onMouseEnter={(e) => handleOnEnter(e.target.value)}
+        value={end}
+        className={styles.pageNumWrap}
+      >
         {end}
       </button>
     </>

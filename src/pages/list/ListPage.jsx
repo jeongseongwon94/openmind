@@ -4,7 +4,7 @@ import CardPagenation from '../../components/common/Pagenation/feature-card-page
 export default function ListPage() {
   return (
     <>
-      <CardPagenation />
+      <CardPagenation className='wrap' />
     </>
   );
 }
