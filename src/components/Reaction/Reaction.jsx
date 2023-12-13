@@ -8,12 +8,12 @@ export default function Reaction({ handleButtonClick, like, dislike }) {
 
   return (
     <div className={styles.reaction}>
-      <button className={styles.like} onClick={handleButtonClick}>
-        <img src={thumbsUp} alt='thumbsUp' />
+      <button className={styles.button} onClick={handleButtonClick}>
+        <img className={styles.img} src={thumbsUp} alt='thumbsUp' />
         {likeStatus}
       </button>
-      <button className={styles.dislike} onClick={handleButtonClick}>
-        <img src={thumbsDown} alt='thumbsDown' />
+      <button className={styles.button} onClick={handleButtonClick}>
+        <img className={styles.img} src={thumbsDown} alt='thumbsDown' />
         {dislikeStatus}
       </button>
     </div>
