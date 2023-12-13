@@ -1,0 +1,15 @@
+.toast {
+  display: inline-block;
+  width: auto;
+  padding: 1.2rem 2rem;
+  background-color: var(--color-gray-60);
+  border-radius: 0.8rem;
+  box-shadow: var(--box-shadow-2pt);
+  vertical-align: middle;
+}
+
+.message {
+  margin: 0;
+  color: var(--color-gray-10);
+  font-size: var(--font-size-14);
+}
