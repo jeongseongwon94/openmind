@@ -4,7 +4,7 @@ export default function AnswerTextArea({ content, placeholder }) {
   return (
     <form>
       <textarea
-        className={styles.textArea}
+        className={styles.textarea}
         name=''
         id=''
         cols='30'
