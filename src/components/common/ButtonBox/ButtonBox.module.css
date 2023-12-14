@@ -1,39 +1,42 @@
-.lightButton {
-  display: inline-flex;
-  gap: 0.8rem;
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   padding: 1.2rem 2.4rem;
-  color: var(--color-brown-40);
-  border: 0.1rem solid var(--color-brown-40);
   border-radius: 0.8rem;
-  background: var(--color-brown-10);
+  font-family: 'Actor', sans-serif;
   font-size: var(--font-size-16);
+  line-height: 2.2rem;
+}
+
+.lightButton {
+  outline: 0.1rem solid var(--color-brown-40);
+  color: var(--color-brown-40);
+  background: var(--color-brown-10);
 }
 
 .lightButton:hover {
-  border: 0.2rem solid var(--color-brown-40);
+  outline: 0.2rem solid var(--color-brown-40);
 }
 
 .lightButton:active {
-  border: 0.2rem solid var(--color-brown-40);
+  outline: 0.2rem solid var(--color-brown-40);
   background: var(--color-brown-20);
 }
 
 .lightButton:disabled {
-  border: 0.1rem solid var(--color-brown-30);
+  outline: 0.1rem solid var(--color-brown-30);
   color: var(--color-brown-30);
 }
 
 .darkButton {
-  display: inline-flex;
-  padding: 1.2rem 2.4rem;
   color: var(--color-gray-10);
-  border-radius: 0.8rem;
   background: var(--color-brown-40);
-  font-size: var(--font-size-16);
 }
 
 .darkButton:hover {
-  border: 0.2rem solid var(--color-brown-50);
+  outline: 0.2rem solid var(--color-brown-50);
 }
 
 .darkButton:active {
@@ -45,9 +48,10 @@
 }
 
 @media screen and (max-width: 375px) {
-  .lightButton,
-  .darkButton {
+  .button {
     height: 3.4rem;
     padding: 0.8rem 1.2rem;
+    font-size: var(--font-size-14);
+    line-height: 1.8rem;
   }
 }
