@@ -12,7 +12,7 @@ export default function AnswerTextArea({ content, placeholder }) {
         placeholder={placeholder}
         // value={content}
       ></textarea>
-      <button type='submit' className={styles.button}>
+      <button type='submit' className={`${styles.button}  ${content ? styles.active : ''}`}>
         답변 완료
       </button>
     </form>

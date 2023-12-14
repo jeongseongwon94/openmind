@@ -15,10 +15,13 @@
   height: 4.6rem;
   padding: 1.2rem 2.4rem;
   border-radius: 0.8rem;
-  background-color: var(--color-brown-30);
+  background: var(--color-brown-30);
   font-size: var(--font-size-16);
   font-weight: var(--font-weight-regular);
   color: var(--color-gray-10);
+}
+.active {
+  background: var(--color-brown-40);
 }
 
 .textarea:focus {
