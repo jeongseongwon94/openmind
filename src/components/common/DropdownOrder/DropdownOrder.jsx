@@ -19,16 +19,14 @@ export default function DropdownOrder({ list, handleButtonClick, children }) {
 
   return (
     <div className={!isDropdownView ? styles.orderBox : styles.orderBoxOpen} onBlur={handleBlurContainer}>
-      <label onClick={handleClickContainer}>
-        <button className={!isDropdownView ? styles.orderButton : styles.orderButtonOpen}>
-          {children}
-          {!isDropdownView ? (
-            <img className={styles.arrowDown} src={arrowDownImage} alt='기본 화살표' />
-          ) : (
-            <img className={styles.arrowUp} src={arrowUpImage} alt='오픈 화살표' />
-          )}
-        </button>
-      </label>
+      <button className={!isDropdownView ? styles.orderButton : styles.orderButtonOpen} onClick={handleClickContainer}>
+        {children}
+        {!isDropdownView ? (
+          <img className={styles.arrowDown} src={arrowDownImage} alt='기본 화살표' />
+        ) : (
+          <img className={styles.arrowUp} src={arrowUpImage} alt='오픈 화살표' />
+        )}
+      </button>
       {isDropdownView && (
         <ul className={styles.orderList}>
           {list.map((li) => (
