@@ -1,0 +1,25 @@
+.reaction {
+  display: flex;
+  gap: 3.2rem;
+  font-size: var(--font-size-14);
+}
+
+.button {
+  display: flex;
+  gap: 0.6rem;
+  color: var(--color-text-secondary);
+  filter: invert(55%) sepia(3%) saturate(7%) hue-rotate(358deg) brightness(92%) contrast(89%);
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.8rem;
+}
+
+.button:hover {
+  color: var(--color-text-primary);
+  filter: invert(0%) sepia(3%) saturate(0%) hue-rotate(287deg) brightness(102%) contrast(100%);
+}
+
+.img {
+  width: 1.6rem;
+  height: 1.6rem;
+}
