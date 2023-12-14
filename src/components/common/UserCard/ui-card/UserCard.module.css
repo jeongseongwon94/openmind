@@ -1,0 +1,73 @@
+/* Card */
+.cardWrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem;
+  border: 1px solid var(--color-gray-40);
+  border-radius: 1.6rem;
+}
+
+/* profile */
+.profileWrap {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.2rem;
+  width: 100%;
+  color: var(--color-gray-60);
+}
+
+.profileText {
+  font-size: var(--font-size-20);
+  font-family: Pretendard;
+  font-weight: var(--font-weight-regular);
+}
+
+.profileImage {
+  width: 6rem;
+  height: 6rem;
+}
+
+/* content */
+.contentWrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-size: var(--font-size-16);
+  font-family: Pretendard;
+  font-weight: var(--font-weight-regular);
+  color: var(--color-gray-40);
+}
+
+.questionWrap {
+  display: flex;
+  align-items: center;
+  column-gap: 0.5rem;
+}
+
+.messagesIcon {
+  width: 1.8rem;
+  height: 1.8rem;
+  filter: invert(54%) sepia(0%) saturate(7500%) hue-rotate(91deg) brightness(90%) contrast(59%);
+}
+
+/* mobile */
+@media screen and (max-width: 375px) {
+  .cardWrap {
+    padding: 1.6rem;
+  }
+
+  .profileText {
+    font-size: var(--font-size-18);
+  }
+
+  .profileImage {
+    width: 4.8rem;
+    height: 4.8rem;
+  }
+
+  .contentWrap {
+    font-size: var(--font-size-14);
+  }
+}

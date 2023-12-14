@@ -1,0 +1,23 @@
+.textarea {
+  width: 100%;
+  max-width: 33.6rem;
+  max-height: 14rem;
+  padding: 1.6rem;
+  resize: none;
+  background: var(--color-background-text-area);
+  border: none;
+  border-radius: 0.8rem;
+  font-size: var(--font-size-16);
+  flex-shrink: 0;
+}
+
+.textarea:focus {
+  outline: none;
+  border: 1px solid var(--color-border-focusing);
+}
+
+.textarea::placeholder {
+  color: var(--color-border-primary);
+  font-size: var(--font-size-16);
+  line-height: 2.2rem;
+}
