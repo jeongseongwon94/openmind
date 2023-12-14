@@ -1,0 +1,18 @@
+.badge {
+  display: inline-flex;
+  padding: 0.4rem 1.2rem;
+  border-radius: 0.8rem;
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.8rem;
+}
+
+.active {
+  color: var(--color-brown-40);
+  border: 1px solid var(--color-border-focusing);
+}
+
+.inActive {
+  color: var(--color-text-secondary);
+  border: 1px solid var(--color-border-primary);
+}
