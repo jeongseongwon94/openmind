@@ -6,10 +6,11 @@
   border-radius: 0.8rem;
   box-shadow: var(--box-shadow-2pt);
   vertical-align: middle;
-}
-
-.message {
-  margin: 0;
   color: var(--color-gray-10);
   font-size: var(--font-size-14);
+
+  position: fixed;
+  bottom: 6rem;
+  left: 50%;
+  transform: translateX(-50%);
 }

@@ -4,17 +4,15 @@ import styles from './SnsBox.module.css';
 
 export default function SnsBox() {
   return (
-    <div>
-      <ul className={styles.snsContainer}>
-        {SNSList.map(({ title, link, imageSrc, altMessage }) => (
-          <li key={title}>
-            <a href={link} target="_blank" rel="noreferrer noopener">
-              <img src={imageSrc} alt={altMessage} />
-            </a>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <ul className={styles.snsContainer}>
+      {SNSList.map(({ title, link, imageSrc, altMessage }) => (
+        <li key={title}>
+          <a href={link} target="_blank" rel="noreferrer noopener">
+            <img src={imageSrc} alt={altMessage} />
+          </a>
+        </li>
+      ))}
+    </ul>
   );
 }
 

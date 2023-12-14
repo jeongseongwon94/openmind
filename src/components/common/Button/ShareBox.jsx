@@ -2,15 +2,11 @@ import LinkBox from './LinkBox.jsx';
 import SnsBox from './SnsBox.jsx';
 import styles from './ShareBox.module.css';
 
-export default function shareBox() {
+export default function shareBox({ baseURL }) {
   return (
     <div className={styles.shareBox}>
-      <div className={styles.shareBoxItem}>
-        <LinkBox />
-      </div>
-      <div className={styles.shareBoxItem}>
-        <SnsBox />
-      </div>
+      <LinkBox baseURL={baseURL} />
+      <SnsBox />
     </div>
   );
 }
