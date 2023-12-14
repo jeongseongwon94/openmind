@@ -6,6 +6,7 @@ import styles from './DropdownOrder.module.css';
 export default function DropdownOrder({ children, List, data }) {
   const [isDropdownView, setDropdownView] = useState(false);
   const [selectedOrder, setSelectedOrder] = useState(children);
+  const setTime = 200;
 
   const handleClickContainer = () => {
     setDropdownView(!isDropdownView);
@@ -14,7 +15,7 @@ export default function DropdownOrder({ children, List, data }) {
   const handleBlurContainer = () => {
     setTimeout(() => {
       setDropdownView(false);
-    }, 200);
+    }, setTime);
   };
 
   return (
