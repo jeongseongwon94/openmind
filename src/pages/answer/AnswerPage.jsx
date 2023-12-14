@@ -1,6 +1,6 @@
-import AnswerLayout from '../../components/common/FeedCardAnswer/AnswerLayout/AnswerLayout';
-import Answer from '../../components/common/FeedCardAnswer/Answer/Answer';
-import AnswerTextArea from '../../components/common/FeedCardAnswer/AnswerTextArea/AnswerTextArea';
+import AnswerLayout from '../../components/common/FeedCardAnswer/AnswerLayout';
+import Answer from '../../components/common/FeedCardAnswer/Answer';
+import AnswerTextArea from '../../components/common/FeedCardAnswer/AnswerTextArea';
 
 // 테스트
 export default function AnswerPage({
