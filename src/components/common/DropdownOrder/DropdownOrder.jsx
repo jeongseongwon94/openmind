@@ -3,9 +3,8 @@ import arrowUpImage from '../../../images/icons/arrowUp.svg';
 import arrowDownImage from '../../../images/icons/arrowDown.svg';
 import styles from './DropdownOrder.module.css';
 
-export default function DropdownOrder({ children, List, data }) {
+export default function DropdownOrder({ list, handleButtonClick, children }) {
   const [isDropdownView, setDropdownView] = useState(false);
-  const [selectedOrder, setSelectedOrder] = useState(children);
   const setTime = 200;
 
   const handleClickContainer = () => {
@@ -22,7 +21,7 @@ export default function DropdownOrder({ children, List, data }) {
     <div className={!isDropdownView ? styles.orderBox : styles.orderBoxOpen} onBlur={handleBlurContainer}>
       <label onClick={handleClickContainer}>
         <button className={!isDropdownView ? styles.orderButton : styles.orderButtonOpen}>
-          {selectedOrder}
+          {children}
           {!isDropdownView ? (
             <img className={styles.arrowDown} src={arrowDownImage} alt='기본 화살표' />
           ) : (
@@ -32,14 +31,8 @@ export default function DropdownOrder({ children, List, data }) {
       </label>
       {isDropdownView && (
         <ul className={styles.orderList}>
-          {List.map((li) => (
-            <li
-              className={styles.order}
-              key={li}
-              onClick={() => {
-                setSelectedOrder(li);
-              }}
-            >
+          {list.map((li) => (
+            <li className={styles.order} key={li} onClick={handleButtonClick}>
               {li}
             </li>
           ))}
