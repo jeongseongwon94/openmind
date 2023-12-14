@@ -1,0 +1,4 @@
+.shareBox {
+  display: flex;
+  column-gap: 1.2rem;
+}
