@@ -29,5 +29,4 @@
 
 .input:focus {
   outline: none;
-  color: var(--color-text-secondary);
 }
