@@ -1,16 +1,15 @@
-import { titleTextLogo, titleImageLogo } from './util';
-import styles from './Layout.module.css';
 import ShareBox from '../../../common/ShareBox/ShareBox';
+import { answerHeaderLogo } from './util';
+import styles from './Layout.module.css';
 
-// 프로필이미지, 프로필아이디 정보
-export default function Layout() {
+export default function Layout({ name, imageSource }) {
   return (
     <header>
       <div className={styles.headerBackground}></div>
       <div className={styles.headerWrap}>
-        <img className={styles.titleTextLogo} src={titleTextLogo} alt='' />
-        <img className={styles.titleImageLogo} src={titleImageLogo} alt='' />
-        <span className={styles.userId}>아초는고양이</span>
+        <img className={styles.answerHeaderLogo} src={answerHeaderLogo} alt='' />
+        <img className={styles.imageSource} src={imageSource} alt='' />
+        <span className={styles.userId}>{name}</span>
         <ShareBox baseURL='http://127.0.0.1:5173' className={styles.test} />
       </div>
     </header>

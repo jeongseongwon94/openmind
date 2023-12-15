@@ -1,2 +1,1 @@
-export const titleTextLogo = '/src/images/logo.svg';
-export const titleImageLogo = '/src/images/profile.svg';
+export const answerHeaderLogo = '/src/images/logo.svg';
