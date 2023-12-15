@@ -1,3 +1,16 @@
+import { useParams } from 'react-router-dom';
+import { axiosBaseURL } from '../../apis/axiosBaseURL';
+import styles from './PostPage.module.css';
+
 export default function PostPage() {
-  return <div>일단 임시로 PostPage로 작명했습니다. 이후에 적절하게 바꿔주세요.</div>;
+  const { id } = useParams();
+  const response = axiosBaseURL.get(`subjects/${id}`);
+  const questionCount = 0;
+
+  return (
+    <div className={styles.postPage}>
+      {/* <Header /> */}
+      {/* <Main questionCount={questionCount} /> */}
+    </div>
+  );
 }
