@@ -1,3 +1,4 @@
+import FeedCard from '../FeedCard/FeedCard';
 import { axiosBaseURL } from '../../apis/axiosBaseURL';
 import messages from '../../../images/icons/messages.svg';
 import styles from './QuestionBox.module.css';
