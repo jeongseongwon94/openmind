@@ -1,11 +1,13 @@
 import styles from './ButtonBox.module.css';
 
-export default function ButtonBox({ handleButtonClick, children, className }) {
+export default function ButtonBox({ children, className, text = true, handleButtonClick }) {
   return (
-    <div>
-      <button className={styles[`${className}`]} onClick={handleButtonClick}>
-        {children}
-      </button>
-    </div>
+    <button
+      className={`${styles.button} ${styles[`${className}`]}`}
+      disabled={text ? false : true}
+      onClick={handleButtonClick}
+    >
+      {children}
+    </button>
   );
 }
