@@ -1,4 +1,43 @@
-.home {
-  color: cornflowerblue;
-  font-size: 32px;
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2.4rem;
+  height: 100vh;
+  background-color: rgb(238, 223, 205);
+}
+
+.logo {
+  width: 45.6rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  padding: 3.2rem;
+  width: 40rem;
+  border-radius: 1.6rem;
+  background: var(--color-background-primary);
+}
+
+.btnContainer {
+  position: absolute;
+  top: 4.5rem;
+  right: 13rem;
+  width: 16.1rem;
+}
+
+.btnText {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.arrowIcon {
+  width: 1.8rem;
+  height: 1.8rem;
+  filter: invert(17%) sepia(12%) saturate(2905%) hue-rotate(338deg) brightness(94%) contrast(88%);
 }
