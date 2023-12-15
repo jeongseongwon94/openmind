@@ -1,0 +1,53 @@
+body {
+  background-color: white;
+}
+
+/* header */
+.headerBackground {
+  width: 120rem;
+  height: 23.4rem;
+  margin: 0 auto;
+  background-image: url('/src/images/QuestionHeaderImg.png');
+}
+
+.headerWrap {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  top: 0;
+  row-gap: 1.2rem;
+  width: 100%;
+  padding-top: 5rem;
+  margin: 0 auto;
+}
+
+.titleTextLogo {
+  width: 100%;
+  height: 6.7rem;
+}
+
+.titleImageLogo {
+  width: 13.6rem;
+  height: 13.6rem;
+}
+
+.userId {
+  font-size: var(--font-size-32);
+  font-family: Actor;
+  color: var(--color-gray-60);
+  font-weight: var(--font-weight-medium);
+  white-space: nowrap;
+}
+
+.shareWrap {
+  display: flex;
+  column-gap: 1.2rem;
+}
+.shareWrap button {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 9.9rem;
+  background-repeat: no-repeat;
+  background-position: center;
+}
