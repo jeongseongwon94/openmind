@@ -1,0 +1,24 @@
+.main {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 52rem;
+  max-width: 120rem;
+  background: var(--color-gray-20);
+}
+
+.AskQuestionButton {
+  position: absolute;
+  bottom: 2.4rem;
+  right: 2.4rem;
+  width: 20.8rem;
+  height: 5.4rem;
+  font-size: var(--font-size-20);
+  font-family: Actor;
+
+  @media (max-width: 375px) {
+    width: auto;
+    font-family: Pretendard;
+  }
+}
