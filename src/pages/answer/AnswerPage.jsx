@@ -1,7 +1,9 @@
 import AnswerLayout from '../../components/common/FeedCardAnswer/AnswerLayout';
 import Answer from '../../components/common/FeedCardAnswer/Answer';
 import AnswerTextArea from '../../components/common/FeedCardAnswer/AnswerTextArea';
-
+import ButtonFloating from '../../components/common/ButtonFloating/ButtonFloating';
+import DropdownKebab from '../../components/common/DropdownKebab/DropdownKebab';
+import styles from './AnswerPage.module.css';
 // 테스트
 export default function AnswerPage({
   // answer -> GET /answers/{answerId}/
@@ -20,13 +22,26 @@ export default function AnswerPage({
   // question -> GET /{team}/questions/{id}/
   answer,
 }) {
+  // 삭제하기 버튼 클릭 시 삭제 로직 (data가 필요없을거같음)
+  const handleButtonClick = (e) => {
+    console.log(e);
+  };
+
+  const list = ['수정하기', '삭제하기'];
+
   return (
-    <AnswerLayout createdAt={createdAt} name={name} imageSource={imageSource} alt={alt} answer={answer}>
-      {answer ? (
-        <Answer content={content} isRejected={isRejected} />
-      ) : (
-        <AnswerTextArea content={content} placeholder={placeholder} />
-      )}
-    </AnswerLayout>
+    // 1. HeaderLayout 적용
+    // 2. FeedCardLayout 적용
+    <>
+      <DropdownKebab list={list} />
+      <ButtonFloating handleButtonClick={handleButtonClick} text='삭제하기' className={styles.deleteButton} />
+      <AnswerLayout createdAt={createdAt} name={name} imageSource={imageSource} alt={alt} answer={answer}>
+        {answer ? (
+          <Answer content={content} isRejected={isRejected} />
+        ) : (
+          <AnswerTextArea content={content} placeholder={placeholder} />
+        )}
+      </AnswerLayout>
+    </>
   );
 }
