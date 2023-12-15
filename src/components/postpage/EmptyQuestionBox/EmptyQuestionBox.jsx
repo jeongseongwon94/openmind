@@ -1,5 +1,5 @@
-import messages from '../../../assets/icons/messages.svg';
-import empty from '../../../assets/empty.svg';
+import messages from '../../../images/icons/messages.svg';
+import empty from '../../../images/empty.svg';
 import styles from './EmptyQuestionBox.module.css';
 
 export default function EmptyQuestionBox() {
