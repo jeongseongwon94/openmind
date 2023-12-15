@@ -2,7 +2,6 @@ import ButtonBox from '../ButtonBox/ButtonBox';
 import styles from './AnswerCreateForm.module.css';
 
 export default function AnswerCreateForm({ content, placeholder }) {
-  content = '';
   const contentClassName = content ? 'darkButton' : 'lightButton';
 
   return (
