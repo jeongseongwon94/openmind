@@ -28,6 +28,7 @@
 .lightButton:disabled {
   outline: 0.1rem solid var(--color-brown-30);
   color: var(--color-brown-30);
+  background: var(--color-brown-10);
 }
 
 .darkButton {
@@ -44,6 +45,7 @@
 }
 
 .darkButton:disabled {
+  outline: none;
   background: var(--color-brown-30);
 }
 
