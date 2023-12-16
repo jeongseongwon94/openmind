@@ -19,7 +19,8 @@
   font-weight: var(--font-weight-regular);
 }
 
-.profileImage {
+.imageSource {
+  border-radius: 9.9rem;
   width: 4.8rem;
   height: 4.8rem;
 }
