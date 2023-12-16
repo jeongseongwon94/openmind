@@ -1,12 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
-import axios from 'axios';
-import InputTextArea from './components/common/InputTextarea/InputTextarea';
-import ButtonBox from './components/common/ButtonBox/ButtonBox';
-import messageIcon from '../src/image/Messages.svg';
-import closeIcon from '../src/image/Close.svg';
-import profile from '../src/image/Ellipse.svg';
+import { axiosBaseURL } from '../../apis/axiosBaseURL';
+import InputTextArea from '../common/InputTextarea/InputTextarea';
+import ButtonBox from '../common/ButtonBox/ButtonBox';
+import messageIcon from '../../images/icons/messages.svg';
+import closeIcon from '../../images/icons/close.svg';
+import profile from '../../images/profile.svg';
 import styles from './Modal.module.css';
-import { axiosBaseURL } from './assets/axiosBaseURL';
 
 export default function Modal({ setModalOpen, id }) {
   const [content, setContent] = useState('');
@@ -30,7 +29,7 @@ export default function Modal({ setModalOpen, id }) {
       }
     };
 
-    // mousedown(마우스 버튼이 눌렸을 때)때마다 handelr 호출
+    // mousedown때마다 handler 호출
     document.addEventListener('mousedown', handler);
 
     // 컴포넌트 언마운트시(화면에서 사라졌을 때) 이벤트 제거
@@ -73,7 +72,7 @@ export default function Modal({ setModalOpen, id }) {
         </div>
         <div className={styles.messenger}>
           <p>To.</p>
-          <img src={profile} />
+          <img src={profile} className={styles.profile} />
           <p>아초는고양이</p>
         </div>
         <form onSubmit={handleFormSubmit}>
@@ -83,7 +82,9 @@ export default function Modal({ setModalOpen, id }) {
             value={content}
             handleTextareaChange={handleTextareaChange}
           />
-          <ButtonBox onClick={postQuestion}>질문보내기</ButtonBox>
+          <ButtonBox onClick={postQuestion} className={styles.buttonBox}>
+            질문보내기
+          </ButtonBox>
         </form>
       </div>
     </div>

@@ -8,25 +8,24 @@
   left: 0;
   height: 100vh;
   width: 100vw;
-  z-index: 900;
   background-color: rgba(0, 0, 0, 0.56);
+  z-index: 900;
 }
 
 .container {
-  font-family: 'Pretendard';
-  font-size: 1.6rem;
-  width: 61.2rem;
-  height: 45.4rem;
-  padding: 4rem;
-  z-index: 999;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  width: 612px;
+  height: 454px;
+  padding: 4rem;
+  font-size: 1.6rem;
   background-color: #ffffff;
   border: 0.1rem solid #ffffff;
   border-radius: 2.4rem;
   box-shadow: var(--box-shadow-2pt);
+  z-index: 999;
 }
 
 .notice {
@@ -37,8 +36,8 @@
 .ask {
   display: flex;
   align-items: center;
-  font-size: var(--font-size-24);
   column-gap: 0.8rem;
+  font-size: var(--font-size-24);
 }
 
 .messenger {
@@ -48,6 +47,29 @@
   margin-bottom: 1rem;
 }
 
+.profile {
+  width: 4rem;
+  height: 4rem;
+}
+
 .inputBox {
-  width: auto;
+  width: 532px;
+  height: 180px;
+}
+
+.buttonBox {
+  background-color: var(--color-brown-30);
+}
+
+/* mobile */
+
+@media (max-width: 375px) {
+  .container {
+    width: 327px;
+    height: 568px;
+  }
+  .inputBox {
+    width: 100%;
+    height: 358px;
+  }
 }
