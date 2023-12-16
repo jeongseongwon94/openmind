@@ -1,22 +1,19 @@
-import AnswerLayout from '../../../common/FeedCardAnswer/AnswerLayout';
 import Answer from '../../../common/FeedCardAnswer/Answer';
-import AnswerCreateForm from '../../../common/FeedCardAnswer/AnswerCreateForm';
 import ButtonFloating from '../../../common/ButtonFloating/ButtonFloating';
 import DropdownKebab from '../../../common/DropdownKebab/DropdownKebab';
 import styles from './AnswerMain.module.css';
 
 export default function AnswerMain({
+  showAnswerForm,
   // subject
-  name = '아초는고양이',
-  imageSource = '/src/images/profile.svg',
-  alt = '사용자 이미지',
-
+  name,
+  imageSource,
+  alt,
   // answer
-  content = '그들을 불러 귀는 이상의 오직 피고,',
-  isRejected = 'false',
-  createdAt = '2주전',
-  placeholder = '답변을 입력해주세요',
-
+  content,
+  isRejected,
+  createdAt,
+  placeholder,
   // question
   answer,
 }) {
@@ -31,13 +28,18 @@ export default function AnswerMain({
     <main>
       <ButtonFloating handleButtonClick={handleButtonClick} text='삭제하기' className={styles.deleteButton} />
       <DropdownKebab list={list} />
-      <AnswerLayout createdAt={createdAt} name={name} imageSource={imageSource} alt={alt} answer={answer}>
-        {answer ? (
-          <Answer content={content} isRejected={isRejected} />
-        ) : (
-          <AnswerCreateForm content={content} placeholder={placeholder} />
-        )}
-      </AnswerLayout>
+
+      <Answer
+        showAnswerForm={showAnswerForm}
+        createdAt={createdAt}
+        name={name}
+        imageSource={imageSource}
+        alt={alt}
+        answer={answer}
+        content={content}
+        isRejected={isRejected}
+        placeholder={placeholder}
+      />
     </main>
   );
 }

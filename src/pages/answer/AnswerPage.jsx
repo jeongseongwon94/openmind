@@ -18,7 +18,9 @@ export default function AnswerPage() {
   return (
     <>
       <Layout name={subjectName} imageSource={subjectImageSource} />
+      {/* showAnswerForm 여부에 따라 answerForm, postForm */}
       <AnswerMain
+        showAnswerForm=''
         name={subjectName}
         imageSource={subjectImageSource}
         alt={alt}
