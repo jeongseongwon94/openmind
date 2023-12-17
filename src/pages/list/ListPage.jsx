@@ -39,7 +39,7 @@ export default function ListPage() {
     handleLoad({ sort, limit: LIMIT, currentPage });
   }, [sort, currentPage]);
 
-  const IsUserID = () => {
+  const handleIsUserID = () => {
     const getId = localStorage.getItem('id');
     getId == null ? navigateToFeed(`/`) : navigateToFeed(`/post/${getId}/answer`);
   };
@@ -51,7 +51,7 @@ export default function ListPage() {
           <img className={styles.logo} src={logo} alt='로고 이미지' />
         </Link>
         <div className={styles.buttonWidth}>
-          <ButtonBox className={'lightButton'} handleButtonClick={IsUserID}>
+          <ButtonBox className={'lightButton'} handleButtonClick={handleIsUserID}>
             <div className={styles.answerButton}>
               답변하러 가기 <img className={styles.arrow} src={arrowImage} alt='화살표 이미지' />
             </div>
