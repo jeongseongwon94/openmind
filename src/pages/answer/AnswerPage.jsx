@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Layout from '../../components/page-layout/QuestionPage/Layout/Layout';
 import AnswerMain from '../../components/page-layout/QuestionPage/Main/AnswerMain';
 import { useGetData } from '../../hooks/useGetData';
+import { useQuestionDelete } from '../../hooks/useQuestion';
 
 export default function AnswerPage() {
   //localStorage
@@ -24,15 +25,15 @@ export default function AnswerPage() {
     setTextareaValue(e.target.value);
   };
 
-  // buttonClass chhange
+  // buttonClass change
   const [textareaClassName, setTextareaClassName] = useState('lightButton');
   useEffect(() => {
     setTextareaClassName('darkButton');
   }, [textareaClassName]);
 
   // delete event
-  const handleButtonClick = (e) => {
-    console.log(e);
+  const handleButtonClick = async () => {
+    useQuestionDelete(`questions/${localStorageId}/`);
   };
 
   return (
