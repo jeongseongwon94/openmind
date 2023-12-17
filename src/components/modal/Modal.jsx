@@ -1,14 +1,14 @@
 import { useEffect, useRef, useState } from 'react';
-import { axiosBaseURL } from '../../apis/axiosBaseURL';
+import axiosBaseURL from '../../apis/axiosBaseURL';
 import InputTextArea from '../common/InputTextarea/InputTextarea';
 import ButtonBox from '../common/ButtonBox/ButtonBox';
 import messageIcon from '../../images/icons/messages.svg';
 import closeIcon from '../../images/icons/close.svg';
-import profile from '../../images/profile.svg';
 import styles from './Modal.module.css';
 
-export default function Modal({ setModalOpen, id }) {
+export default function Modal({ setModalOpen, id, name, image }) {
   const [content, setContent] = useState('');
+
   const handleTextareaChange = (e) => {
     setContent(e.target.value);
   };
@@ -39,21 +39,15 @@ export default function Modal({ setModalOpen, id }) {
   }, []);
 
   const postQuestion = async () => {
-    await axiosBaseURL.post(
+    const res = await axiosBaseURL.post(
       `subjects/${id}/questions/`,
-      {
-        content: content,
-      },
-      {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      }
+      { content: content },
+      { headers: { 'Content-Type': 'application/json' } }
     );
+    console.log(res);
   };
 
   const handleFormSubmit = async (e) => {
-    e.preventDefault();
     await postQuestion();
     setContent('');
   };
@@ -64,25 +58,26 @@ export default function Modal({ setModalOpen, id }) {
         <div className={styles.notice}>
           <div className={styles.ask}>
             <img src={messageIcon} />
-            <p>질문을 작성하세요</p>
+            <p className={styles.question}>질문을 작성하세요</p>
           </div>
           <button onClick={closeModal}>
             <img src={closeIcon} alt="닫기 아이콘" />
           </button>
         </div>
         <div className={styles.messenger}>
-          <p>To.</p>
-          <img src={profile} className={styles.profile} />
-          <p>아초는고양이</p>
+          <p className={styles.to}>To.</p>
+          <img src={image} className={styles.profile} />
+          <p className={styles.name}>{name}</p>
         </div>
-        <form onSubmit={handleFormSubmit}>
-          <InputTextArea
-            className={styles.inputBox}
-            placeholder="질문을 입력해주세요"
-            value={content}
-            handleTextareaChange={handleTextareaChange}
-          />
-          <ButtonBox onClick={postQuestion} className={styles.buttonBox}>
+        <form onSubmit={handleFormSubmit} className={styles.form}>
+          <div className={styles.inputBox}>
+            <InputTextArea
+              placeholder="질문을 입력해주세요"
+              value={content}
+              handleTextareaChange={handleTextareaChange}
+            />
+          </div>
+          <ButtonBox onClick={postQuestion} className="darkButton">
             질문보내기
           </ButtonBox>
         </form>
