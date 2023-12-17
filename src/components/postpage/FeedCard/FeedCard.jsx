@@ -1,14 +1,14 @@
 import styles from './FeedCard.module.css';
 
-export default function FeedCard({ showKebab, showEdit }) {
+export default function FeedCard({ data, showKebab }) {
   return (
     <div>
       <Badge />
-      {showKebab && <Kebab />}
+      {/* {showKebab && <Kebab />} */}
       <Question />
       <Answer />
       <Reaction />
-      {showEdit && <Edit />}
+      {/* {showEdit && <Edit />} */}
     </div>
   );
 }

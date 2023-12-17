@@ -1,6 +1,9 @@
 import { useParams } from 'react-router-dom';
+import { SubjectDataContext } from '../../contexts/SubjectDataContext';
 import { useGetData } from '../../hooks/useGetData';
+
 import MainSection from '../../components/postpage/MainSection/MainSection';
+
 import styles from './PostPage.module.css';
 
 export default function PostPage() {
@@ -10,12 +13,13 @@ export default function PostPage() {
   if (loading) {
     return [];
   }
-  const { name, imageSource, questionCount } = data;
 
   return (
     <div className={styles.postPage}>
-      {/* <Header name={name} imageSource={imageSource} /> */}
-      <MainSection id={id} questionCount={questionCount} />
+      <SubjectDataContext.Provider value={data}>
+        {/* <Header /> */}
+        <MainSection />
+      </SubjectDataContext.Provider>
     </div>
   );
 }
