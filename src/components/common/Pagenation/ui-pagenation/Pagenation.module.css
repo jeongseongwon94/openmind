@@ -2,7 +2,6 @@
   color: var(--color-gray-40);
   font-size: 2rem;
   font-family: Actor;
-  font-weight: var(--font-weight-regular);
 }
 
 .pageNum:hover {
