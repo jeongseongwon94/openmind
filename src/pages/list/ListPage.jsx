@@ -64,7 +64,7 @@ export default function ListPage() {
         </div>
         <div className={styles.dropdownBox}>
           <DropdownOrder list={orderList} setSort={setSort}>
-            {orderList[0]}
+            {orderList[1]}
           </DropdownOrder>
         </div>
         <div className={styles.cardList}>
