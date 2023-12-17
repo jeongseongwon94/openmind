@@ -23,11 +23,9 @@ export default function QuestionBox() {
         <img className={styles.messagesIcon} src={messages} alt='messageIcon' />
         <span className={styles.messages}>{count === 0 ? `아직 질문이 없습니다` : `${count}개의 질문이 있습니다`}</span>
       </div>
-      {count === 0 ? <img className={styles.emptyIcon} src={empty} alt='questionBoxIcon' /> : []}
+      {count === 0 ? <img className={styles.emptyIcon} src={empty} alt='questionBoxIcon' /> : null}
       <div className={styles.feedCardList}>
-        {results?.map((result) => {
-          <FeedCard data={result} showKebab={true} />;
-        }) ?? []}
+        {results?.map((result) => <FeedCard key={result.id} data={result} showKebab={false} />) ?? []}
       </div>
     </div>
   );
