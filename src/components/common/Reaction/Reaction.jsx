@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { axiosBaseURL } from '../../../apis/axiosBaseURL';
 
 import thumbsUp from '../../../images/icons/thumbsUp.svg';
