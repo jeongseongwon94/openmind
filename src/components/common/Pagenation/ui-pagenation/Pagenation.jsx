@@ -7,26 +7,24 @@ export default function Pagenation({ current, total, handleChangeValue, setPage 
   const LastButton = 'Last';
   const lt = '<';
   const gt = '>';
-  const pageGroup = Math.ceil(current / PAGE_LIMIT);
-  const pageLast = pageGroup * PAGE_LIMIT > total ? total : pageGroup * PAGE_LIMIT;
-  const pageFirst = (pageGroup - 1) * PAGE_LIMIT + 1 <= 0 ? 1 : (pageGroup - 1) * PAGE_LIMIT + 1;
-  const NEXT = pageLast + 1;
-  const PREV = pageFirst - 1;
+  const PAGE_GROUP = Math.ceil(current / PAGE_LIMIT);
+  const PAGE_LAST = PAGE_GROUP * PAGE_LIMIT > total ? total : PAGE_GROUP * PAGE_LIMIT;
+  const PAGE_FIRST = (PAGE_GROUP - 1) * PAGE_LIMIT + 1 <= 0 ? 1 : (PAGE_GROUP - 1) * PAGE_LIMIT + 1;
+  const NEXT = PAGE_LAST + 1 > total ? total : PAGE_LAST + 1;
+  const PREV = PAGE_FIRST - 1 < 1 ? 1 : PAGE_FIRST - 1;
   const PAGE_ONE = 1;
+  const pageArray = pageArrayInit(PAGE_FIRST, PAGE_LAST);
 
-  const pageArray = pageArrayInit(pageFirst, pageLast);
   return (
     <>
-      {PREV > 0 && (
+      {current > PAGE_ONE && (
         <button className={styles.pageNum} onClick={() => setPage(PAGE_ONE)}>
           {FirstButton}
         </button>
       )}
-      {PREV > 0 && (
-        <button className={styles.pageNum} onClick={() => setPage(PREV)}>
-          {lt}
-        </button>
-      )}
+      <button className={styles.pageNum} onClick={() => setPage(PREV)}>
+        {lt}
+      </button>
       {pageArray.map((page) => (
         <button
           key={page}
@@ -37,12 +35,10 @@ export default function Pagenation({ current, total, handleChangeValue, setPage 
           {page}
         </button>
       ))}
-      {pageLast < total && (
-        <button className={styles.pageNum} onClick={() => setPage(NEXT)}>
-          {gt}
-        </button>
-      )}
-      {pageLast < total && (
+      <button className={styles.pageNum} onClick={() => setPage(NEXT)}>
+        {gt}
+      </button>
+      {PAGE_LAST < total && (
         <button className={styles.pageNum} onClick={() => setPage(total)}>
           {LastButton}
         </button>
