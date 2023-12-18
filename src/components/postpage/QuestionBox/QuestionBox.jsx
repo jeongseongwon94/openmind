@@ -16,6 +16,7 @@ export default function QuestionBox() {
     return [];
   }
   const { count, results } = data;
+  const sortedResults = results.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
 
   return (
     <div className={styles.questionBox}>
@@ -25,7 +26,7 @@ export default function QuestionBox() {
       </div>
       {count === 0 ? <img className={styles.emptyIcon} src={empty} alt='questionBoxIcon' /> : null}
       <div className={styles.feedCardList}>
-        {results?.map((result) => <FeedCard key={result.id} data={result} showKebab={true} />) ?? []}
+        {sortedResults?.map((result) => <FeedCard key={result.id} data={result} showKebab={true} />) ?? []}
       </div>
     </div>
   );
