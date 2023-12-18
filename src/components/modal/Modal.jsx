@@ -1,12 +1,17 @@
-import { useEffect, useRef, useState } from 'react';
-import axiosBaseURL from '../../apis/axiosBaseURL';
+import { useEffect, useRef, useState, useContext } from 'react';
+
 import InputTextArea from '../common/InputTextarea/InputTextarea';
 import ButtonBox from '../common/ButtonBox/ButtonBox';
+
+import axiosBaseURL from '../../apis/axiosBaseURL';
+import { SubjectDataContext } from '../../contexts/SubjectDataContext';
+
 import messageIcon from '../../images/icons/messages.svg';
 import closeIcon from '../../images/icons/close.svg';
 import styles from './Modal.module.css';
 
-export default function Modal({ setModalOpen, id, name, image }) {
+export default function Modal({ setModalOpen }) {
+  const { id, name, imageSource } = useContext(SubjectDataContext);
   const [content, setContent] = useState('');
 
   const handleTextareaChange = (e) => {
@@ -38,18 +43,18 @@ export default function Modal({ setModalOpen, id, name, image }) {
     };
   }, []);
 
-  const postQuestion = async () => {
-    const res = await axiosBaseURL.post(
-      `subjects/${id}/questions/`,
-      { content: content },
-      { headers: { 'Content-Type': 'application/json' } }
-    );
-    console.log(res);
-  };
-
-  const handleFormSubmit = async (e) => {
-    await postQuestion();
-    setContent('');
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const res = await axiosBaseURL.post(
+        `subjects/${id}/questions/`,
+        { content: content },
+        { headers: { 'Content-Type': 'application/json' } }
+      );
+      setContent('');
+    } catch {
+      console.error('에러가 발생했습니다!');
+    }
   };
 
   return (
@@ -77,7 +82,7 @@ export default function Modal({ setModalOpen, id, name, image }) {
               handleTextareaChange={handleTextareaChange}
             />
           </div>
-          <ButtonBox onClick={postQuestion} className="darkButton">
+          <ButtonBox type="submit" className="darkButton">
             질문보내기
           </ButtonBox>
         </form>
