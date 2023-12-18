@@ -1,12 +1,17 @@
 .reaction {
   display: flex;
+  justify-content: flex-start;
+  width: 100%;
   gap: 3.2rem;
+  padding-top: 2.4rem;
+  border-top: 0.1rem solid var(--color-gray-30);
   font-size: var(--font-size-14);
 }
 
 .button {
   display: flex;
   gap: 0.6rem;
+  padding: 0;
   color: var(--color-text-secondary);
   filter: invert(55%) sepia(3%) saturate(7%) hue-rotate(358deg) brightness(92%) contrast(89%);
   font-size: var(--font-size-14);
@@ -17,6 +22,11 @@
 .button:hover {
   color: var(--color-text-primary);
   filter: invert(0%) sepia(3%) saturate(0%) hue-rotate(287deg) brightness(102%) contrast(100%);
+}
+
+.button:active {
+  color: var(--color-text-selected);
+  filter: invert(37%) sepia(87%) saturate(3598%) hue-rotate(203deg) brightness(99%) contrast(92%);
 }
 
 .img {

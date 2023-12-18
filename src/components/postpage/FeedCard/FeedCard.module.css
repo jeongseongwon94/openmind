@@ -1,0 +1,22 @@
+.feedCard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: auto;
+  padding: 3.2rem;
+  gap: 3.2rem;
+  border-radius: 1.6rem;
+  background: var(--color-background-primary);
+  box-shadow: var(--box-shadow-1pt);
+
+  @media (max-width: 375px) {
+    padding: 2.4rem;
+    gap: 2.4rem;
+  }
+}
+
+.badgeAndKebab {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
