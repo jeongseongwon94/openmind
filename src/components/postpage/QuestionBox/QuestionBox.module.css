@@ -1,0 +1,57 @@
+.questionBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: auto;
+  height: auto;
+  padding: 1.6rem;
+  gap: 1.6rem;
+  background-color: var(--color-brown-10);
+  border: 0.1rem solid var(--color-brown-20);
+  border-radius: 1.6rem;
+}
+
+.text {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+.messagesIcon {
+  width: 2.4rem;
+  height: 2.4rem;
+  filter: invert(16%) sepia(26%) saturate(1328%) hue-rotate(338deg) brightness(102%) contrast(90%);
+
+  @media (max-width: 375px) {
+    width: 2.2rem;
+    height: 2.2rem;
+  }
+}
+
+.messages {
+  color: var(--color-brown-40);
+  font-family: Actor;
+  font-size: var(--font-size-20);
+  line-height: 2.5rem;
+
+  @media (max-width: 375px) {
+    font-size: var(--font-size-18);
+    line-height: 2.4rem;
+  }
+}
+
+.emptyIcon {
+  width: 15rem;
+  height: 15.4rem;
+
+  @media (max-width: 375px) {
+    width: 11.4rem;
+    height: 11.8rem;
+  }
+}
+
+.feedCardList {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}

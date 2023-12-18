@@ -1,3 +1,25 @@
+import { useParams } from 'react-router-dom';
+import { SubjectDataContext } from '../../contexts/SubjectDataContext';
+import { useGetData } from '../../hooks/useGetData';
+
+import MainSection from '../../components/postpage/MainSection/MainSection';
+
+import styles from './PostPage.module.css';
+
 export default function PostPage() {
-  return <div>일단 임시로 PostPage로 작명했습니다. 이후에 적절하게 바꿔주세요.</div>;
+  const { id } = useParams();
+  const url = `subjects/${id}/`;
+  const { data, loading } = useGetData(url);
+  if (loading) {
+    return [];
+  }
+
+  return (
+    <div className={styles.postPage}>
+      <SubjectDataContext.Provider value={data}>
+        {/* <Header /> */}
+        <MainSection />
+      </SubjectDataContext.Provider>
+    </div>
+  );
 }
