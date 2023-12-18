@@ -5,6 +5,7 @@ import UserCard from '../../components/common/UserCard/ui-card/UserCard';
 import CardPagenation from '../../components/common/Pagenation/feature-card-pagenation/CardPagenation';
 import DropdownOrder from '../../components/common/DropdownOrder/DropdownOrder';
 import ButtonBox from '../../components/common/ButtonBox/ButtonBox';
+import { axiosBaseURL } from '../../apis/axiosBaseURL';
 import logo from '../../images/logo.svg';
 import arrowImage from '../../images/icons/arrow.svg';
 import styles from './ListPage.module.css';
@@ -12,26 +13,23 @@ import styles from './ListPage.module.css';
 export default function ListPage() {
   const [sort, setSort] = useState('time');
   const [cardList, setCardList] = useState([]);
-  const [offset, setOffset] = useState(0);
   const [count, setCount] = useState(0);
   const [currentPage, setPage] = useState(1);
   const navigateToFeed = useNavigate();
   const orderList = ['이름순', '최신순'];
-  const baseURL = 'https://openmind-api.vercel.app/2-10/subjects/';
   const sortedCardList = cardList.sort((a, b) => b[sort] - a[sort]);
   const LIMIT = 8;
+  const pageFix = 1;
 
   const getCardList = async ({ limit, sort, currentPage }) => {
-    const query = `?limit=${limit}&offset=${(currentPage - 1) * limit}&sort=${sort}`;
-    const response = await fetch(`${baseURL}${query}`);
-    const body = response.json();
-    return body;
+    const url = `/subjects/?limit=${limit}&offset=${(currentPage - pageFix) * limit}&sort=${sort}`;
+    const response = await axiosBaseURL.get(url);
+    return response.data;
   };
 
   const handleLoad = async (options) => {
     const { results, count } = await getCardList(options);
-    options.offset === 0 ? setCardList(results) : setCardList([...results]);
-    setOffset(offset);
+    setCardList(results);
     setCount(count);
   };
 
