@@ -5,13 +5,13 @@ export default function Pagenation({ current, total, handleChangeValue, setPage 
   const pageLimit = 5;
   const lt = '<';
   const gt = '>';
-  const PageGroup = Math.ceil(current / pageLimit);
-  const PageLast = PageGroup * pageLimit > total ? total : PageGroup * pageLimit;
-  const PageFirst = (PageGroup - 1) * pageLimit + 1 <= 0 ? 1 : (PageGroup - 1) * pageLimit + 1;
-  const next = PageLast + 1;
-  const prev = PageFirst - 1;
+  const pageGroup = Math.ceil(current / pageLimit);
+  const pageLast = pageGroup * pageLimit > total ? total : pageGroup * pageLimit;
+  const pageFirst = (pageGroup - 1) * pageLimit + 1 <= 0 ? 1 : (pageGroup - 1) * pageLimit + 1;
+  const next = pageLast + 1;
+  const prev = pageFirst - 1;
 
-  const pageArray = pageArrayInit(PageFirst, PageLast);
+  const pageArray = pageArrayInit(pageFirst, pageLast);
   return (
     <>
       {prev > 0 && (
@@ -29,7 +29,7 @@ export default function Pagenation({ current, total, handleChangeValue, setPage 
           {page}
         </button>
       ))}
-      {PageLast < total && (
+      {pageLast < total && (
         <button className={styles.pageNum} onClick={() => setPage(next)}>
           {gt}
         </button>
