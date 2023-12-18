@@ -37,17 +37,40 @@ export default function HomePage() {
     return data.id;
   };
 
+  // 현재 저장되어 있는 총 피드의 수(count)를 가져 옴
+  const getTotalUserCount = async () => {
+    const response = await axiosBaseURL.get('subjects/');
+    const count = response.data.count;
+    return count;
+  };
+
+  // 현재 저장되어 있는 모든 유저 정보 배열을 가져 옴
+  const getTotalUserData = async () => {
+    const count = await getTotalUserCount();
+    const response = await axiosBaseURL.get(`subjects/?limit=${count}`);
+    const data = response.data.results;
+    return data;
+  };
+
+  const isExistedName = async () => {
+    const totalUserArray = await getTotalUserData();
+
+    return totalUserArray.some(({ name }) => name === userName);
+  };
+
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     setUserName('');
 
-    if (localStorage.getItem('id')) {
-      navigateToFeed(`/post/${localStorage.getItem('id')}/answer`); // 이렇게 코드를 짜면 이미 저장된 id가 있다면 어떤 이름을 새로 입력하든 그 피드로 이동함. 입력한 이름에 맞는 피드 페이지로 이동하려면?
+    const isExisted = await isExistedName();
+    if (isExisted) {
+      alert('이미 존재하는 이름입니다. 다른 이름을 입력해주세요.');
+      return;
     }
 
     const id = await createUserId();
     localStorage.setItem('id', id);
-    navigateToFeed(`/post/${id}/answer`); // 이렇게만 코드를 짜면 같은 이름을 입력해도 항상 새로운 피드가 생성됨(로컬스토리지에 저장된 id 값이 계속 새로운 값으로 덮어씌워 짐)
+    navigateToFeed(`/post/${id}/answer`);
   };
 
   return (
