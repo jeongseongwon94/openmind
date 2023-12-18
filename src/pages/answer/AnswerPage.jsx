@@ -1,60 +1,31 @@
-import { useState, useEffect } from 'react';
 import Layout from '../../components/page-layout/QuestionPage/Layout/Layout';
 import AnswerMain from '../../components/page-layout/QuestionPage/Main/AnswerMain';
 import { useGetData } from '../../hooks/useGetData';
-import { useQuestionDelete } from '../../hooks/useQuestion';
+import { SubjectDataContext } from '../../contexts/SubjectDataContext';
 
 export default function AnswerPage() {
-  //localStorage
   const localStorageId = localStorage.getItem('id');
-  if (!localStorageId) localStorage.setItem('id', 1347);
+  if (!localStorageId) localStorage.setItem('id', 1452);
 
-  //api
   const { data: subjectIdData } = useGetData(`subjects/${localStorageId}/`);
-  const { name: subjectName, imageSource: subjectImageSource, alt } = subjectIdData;
 
-  const { data: answerData } = useGetData(`answers/${localStorageId}/`);
-  const { content = 'test', isRejected, createdAt, placeholder } = answerData;
+  const { data: questionData } = useGetData(`subjects/${localStorageId}/questions/`);
+  const { results: questionResult } = questionData;
 
-  const { data: questionData } = useGetData(`question/${localStorageId}/`);
-  const { answer } = questionData;
+  const { data: answerData } = useGetData(`answers/1642/`);
 
-  // textarea event
-  const [textareaValue, setTextareaValue] = useState(content);
-  const handleTextareaChange = (e) => {
-    setTextareaValue(e.target.value);
-  };
-
-  // buttonClass change
-  const [textareaClassName, setTextareaClassName] = useState('lightButton');
-  useEffect(() => {
-    setTextareaClassName('darkButton');
-  }, [textareaClassName]);
-
-  // delete event
-  const handleButtonClick = async () => {
-    useQuestionDelete(`questions/${localStorageId}/`);
+  const data = {
+    subjectIdData,
+    questionResult,
+    answerData,
   };
 
   return (
     <>
-      <Layout name={subjectName} imageSource={subjectImageSource} />
-      {/* showAnswerForm 여부에 따라 answerForm, postForm */}
-      <AnswerMain
-        showAnswerForm=''
-        name={subjectName}
-        imageSource={subjectImageSource}
-        alt={alt}
-        content={content}
-        isRejected={isRejected}
-        createdAt={createdAt}
-        placeholder={placeholder}
-        answer={answer}
-        textareaValue={textareaValue}
-        handleTextareaChange={handleTextareaChange}
-        textareaClassName={textareaClassName}
-        handleButtonClick={handleButtonClick}
-      />
+      <SubjectDataContext.Provider value={data}>
+        <Layout />
+        <AnswerMain />
+      </SubjectDataContext.Provider>
     </>
   );
 }
