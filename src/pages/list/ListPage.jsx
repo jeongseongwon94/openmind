@@ -5,6 +5,8 @@ import UserCard from '../../components/common/UserCard/ui-card/UserCard';
 import CardPagenation from '../../components/common/Pagenation/feature-card-pagenation/CardPagenation';
 import DropdownOrder from '../../components/common/DropdownOrder/DropdownOrder';
 import ButtonBox from '../../components/common/ButtonBox/ButtonBox';
+import { useIsMobileSize } from '../../hooks/useIsMobileSize';
+import { useIsTabletSize } from '../../hooks/useIsTabletSize';
 import { axiosBaseURL } from '../../apis/axiosBaseURL';
 import logo from '../../images/logo.svg';
 import arrowImage from '../../images/icons/arrow.svg';
@@ -18,11 +20,15 @@ export default function ListPage() {
   const navigateToFeed = useNavigate();
   const orderList = ['이름순', '최신순'];
   const sortedCardList = cardList.sort((a, b) => b[sort] - a[sort]);
+  const Mobile_LIMIT = 6;
   const LIMIT = 8;
-  const pageFix = 1;
+  const PAGE_FIX = 1;
+  const isMobileSize = useIsMobileSize();
+  const isTabletSize = useIsTabletSize();
+  const LIMITSIZE = isMobileSize || isTabletSize ? Mobile_LIMIT : LIMIT;
 
-  const getCardList = async ({ limit, sort, currentPage }) => {
-    const url = `/subjects/?limit=${limit}&offset=${(currentPage - pageFix) * limit}&sort=${sort}`;
+  const getCardList = async ({ sort, LIMITSIZE, currentPage }) => {
+    const url = `/subjects/?limit=${LIMITSIZE}&offset=${(currentPage - PAGE_FIX) * LIMITSIZE}&sort=${sort}`;
     const response = await axiosBaseURL.get(url);
     return response.data;
   };
@@ -34,8 +40,8 @@ export default function ListPage() {
   };
 
   useEffect(() => {
-    handleLoad({ sort, limit: LIMIT, currentPage });
-  }, [sort, currentPage]);
+    handleLoad({ sort, LIMITSIZE, currentPage });
+  }, [sort, LIMITSIZE, currentPage]);
 
   const handleIsUserID = () => {
     const getId = localStorage.getItem('id');
@@ -57,13 +63,15 @@ export default function ListPage() {
         </div>
       </header>
       <main className={styles.main}>
-        <div className={styles.mainHead}>
-          <span>누구에게 질문할까요?</span>
-        </div>
-        <div className={styles.dropdownBox}>
-          <DropdownOrder list={orderList} setSort={setSort}>
-            {orderList[1]}
-          </DropdownOrder>
+        <div className={styles.mainHeader}>
+          <div className={styles.mainText}>
+            <span>누구에게 질문할까요?</span>
+          </div>
+          <div className={styles.dropdownBox}>
+            <DropdownOrder list={orderList} setSort={setSort}>
+              {orderList[1]}
+            </DropdownOrder>
+          </div>
         </div>
         <div className={styles.cardList}>
           {sortedCardList?.map((data) => (
