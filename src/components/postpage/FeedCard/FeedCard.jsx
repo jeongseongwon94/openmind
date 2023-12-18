@@ -1,4 +1,5 @@
 import Badge from '../../common/Badge/Badge';
+import DropdownKebab from '../../common/DropdownKebab/DropdownKebab';
 import Question from '../Question/Question';
 import Reaction from '../../common/Reaction/Reaction';
 
@@ -9,12 +10,13 @@ export default function FeedCard({ data, showKebab }) {
 
   return (
     <div className={styles.feedCard}>
-      {answer === null ? <Badge className='inActive' text='미답변' /> : <Badge className='active' text='답변 완료' />}
-      {/* {showKebab && <Kebab />} */}
+      <div className={styles.badgeAndKebab}>
+        {answer === null ? <Badge className='inActive' text='미답변' /> : <Badge className='active' text='답변 완료' />}
+        {showKebab && <DropdownKebab />}
+      </div>
       <Question createdAt={createdAt} content={content} />
       {/* <Answer /> */}
       <Reaction id={id} like={like} dislike={dislike} />
-      {/* {showEdit && <Edit />} */}
     </div>
   );
 }
