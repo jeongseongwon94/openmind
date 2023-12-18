@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import InputField from '../../components/common/InputField/InputField';
@@ -16,6 +16,12 @@ export default function HomePage() {
   const [userName, setUserName] = useState('');
   const navigateToFeed = useNavigate();
   const navigateToList = useNavigate();
+
+  useEffect(() => {
+    if (localStorage.getItem('id')) {
+      navigateToList('/list');
+    }
+  }, []);
 
   const handleInputChange = (e) => {
     setUserName(e.target.value);
