@@ -10,7 +10,7 @@ import messageIcon from '../../images/icons/messages.svg';
 import closeIcon from '../../images/icons/close.svg';
 import styles from './Modal.module.css';
 
-export default function Modal({ setModalOpen }) {
+export default function Modal({ setNewData, setModalOpen }) {
   const { id, name, imageSource } = useContext(SubjectDataContext);
   const [content, setContent] = useState('');
 
@@ -52,6 +52,7 @@ export default function Modal({ setModalOpen }) {
         { headers: { 'Content-Type': 'application/json' } }
       );
       setContent('');
+      setNewData(res.data);
     } catch {
       console.error('에러가 발생했습니다!');
     }
