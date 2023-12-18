@@ -1,31 +1,23 @@
-import Layout from '../../components/page-layout/QuestionPage/Layout/Layout';
-import AnswerMain from '../../components/page-layout/QuestionPage/Main/AnswerMain';
-import { useGetData } from '../../hooks/useGetData';
+import { useParams } from 'react-router-dom';
 import { SubjectDataContext } from '../../contexts/SubjectDataContext';
+import { useGetData } from '../../hooks/useGetData';
+import MainSection from '../../components/postpage/MainSection/MainSection';
+import Layout from '../../components/page-layout/QuestionPage/Layout/Layout';
 
-export default function AnswerPage() {
-  const localStorageId = localStorage.getItem('id');
-  if (!localStorageId) localStorage.setItem('id', 1452);
-
-  const { data: subjectIdData } = useGetData(`subjects/${localStorageId}/`);
-
-  const { data: questionData } = useGetData(`subjects/${localStorageId}/questions/`);
-  const { results: questionResult } = questionData;
-
-  const { data: answerData } = useGetData(`answers/1642/`);
-
-  const data = {
-    subjectIdData,
-    questionResult,
-    answerData,
-  };
+export default function PostPage() {
+  const { id } = useParams();
+  const url = `subjects/${id}/`;
+  const { data, loading } = useGetData(url);
+  if (loading) {
+    return [];
+  }
 
   return (
-    <>
+    <div>
       <SubjectDataContext.Provider value={data}>
         <Layout />
-        <AnswerMain />
+        <MainSection />
       </SubjectDataContext.Provider>
-    </>
+    </div>
   );
 }

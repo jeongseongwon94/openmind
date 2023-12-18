@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import { SubjectDataContext } from '../../../../contexts/SubjectDataContext';
 import Answer from '../../../common/FeedCardAnswer/Answer.jsx';
 import ButtonFloating from '../../../common/ButtonFloating/ButtonFloating';
@@ -9,13 +10,16 @@ import { useQuestionDelete } from '../../../../hooks/useQuestion.js';
 
 import styles from './AnswerMain.module.css';
 
-export default function AnswerMain() {
-  const localStorageId = localStorage.getItem('id');
+export default function AnswerMain({ answer }) {
+  const { id } = useParams();
 
-  const { questionResult, answerData } = useContext(SubjectDataContext);
+  console.log(`AnswerMain>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>`);
+  const { answerId, content, createdAt, questionId, isRejected } = answer || {};
+  console.log(answer);
 
   // textarea 입력 값
-  const [textareaValue, setTextareaValue] = useState(answerData.content);
+  // const [textareaValue, setTextareaValue] = useState(answerData.content);
+  const [textareaValue, setTextareaValue] = useState(content);
   const handleTextareaChange = (e) => {
     setTextareaValue(e.target.value);
   };
@@ -33,8 +37,8 @@ export default function AnswerMain() {
 
   // 답변하기 : list데이터 merge 이후 다시 확인
   const handleAnswerCreate = async () => {
-    const questionId = questionResult[0].id;
-    console.log(questionId);
+    // const questionId = questionResult[0].id;
+    console.log(id);
     // await axiosBaseURL.post(
     //   `questions/${questionId}/answers/`,
     //   {
@@ -54,12 +58,13 @@ export default function AnswerMain() {
 
   return (
     <main>
-      <ButtonFloating handleButtonClick={handleDeleteButton} text='삭제하기' className={styles.deleteButton} />
-      <DropdownKebab list={list} />
+      {/* <ButtonFloating handleButtonClick={handleDeleteButton} text='삭제하기' className={styles.deleteButton} /> */}
+      {/* <DropdownKebab list={list} /> */}
 
       {/* showAnswerForm 사용여부에 따라 textareaForm 표시*/}
       <Answer
         showAnswerForm={true}
+        answer={answer}
         textareaValue={textareaValue}
         textareaClassName={textareaClassName}
         handleTextareaChange={handleTextareaChange}

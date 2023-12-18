@@ -1,3 +1,4 @@
+import AnswerMain from '../../page-layout/QuestionPage/Main/AnswerMain';
 import Badge from '../../common/Badge/Badge';
 import DropdownKebab from '../../common/DropdownKebab/DropdownKebab';
 import Question from '../Question/Question';
@@ -15,7 +16,7 @@ export default function FeedCard({ data, showKebab }) {
         {showKebab && <DropdownKebab />}
       </div>
       <Question createdAt={createdAt} content={content} />
-      {/* <Answer /> */}
+      <AnswerMain answer={answer} />
       <Reaction id={id} like={like} dislike={dislike} />
     </div>
   );
