@@ -2,20 +2,28 @@ import { pageArrayInit } from './util';
 import styles from './Pagenation.module.css';
 
 export default function Pagenation({ current, total, handleChangeValue, setPage }) {
-  const pageLimit = 5;
+  const PAGE_LIMIT = 5;
+  const FirstButton = 'First';
+  const LastButton = 'Last';
   const lt = '<';
   const gt = '>';
-  const pageGroup = Math.ceil(current / pageLimit);
-  const pageLast = pageGroup * pageLimit > total ? total : pageGroup * pageLimit;
-  const pageFirst = (pageGroup - 1) * pageLimit + 1 <= 0 ? 1 : (pageGroup - 1) * pageLimit + 1;
-  const next = pageLast + 1;
-  const prev = pageFirst - 1;
+  const pageGroup = Math.ceil(current / PAGE_LIMIT);
+  const pageLast = pageGroup * PAGE_LIMIT > total ? total : pageGroup * PAGE_LIMIT;
+  const pageFirst = (pageGroup - 1) * PAGE_LIMIT + 1 <= 0 ? 1 : (pageGroup - 1) * PAGE_LIMIT + 1;
+  const NEXT = pageLast + 1;
+  const PREV = pageFirst - 1;
+  const PAGE_ONE = 1;
 
   const pageArray = pageArrayInit(pageFirst, pageLast);
   return (
     <>
-      {prev > 0 && (
-        <button className={styles.pageNum} onClick={() => setPage(prev)}>
+      {PREV > 0 && (
+        <button className={styles.pageNum} onClick={() => setPage(PAGE_ONE)}>
+          {FirstButton}
+        </button>
+      )}
+      {PREV > 0 && (
+        <button className={styles.pageNum} onClick={() => setPage(PREV)}>
           {lt}
         </button>
       )}
@@ -30,8 +38,13 @@ export default function Pagenation({ current, total, handleChangeValue, setPage 
         </button>
       ))}
       {pageLast < total && (
-        <button className={styles.pageNum} onClick={() => setPage(next)}>
+        <button className={styles.pageNum} onClick={() => setPage(NEXT)}>
           {gt}
+        </button>
+      )}
+      {pageLast < total && (
+        <button className={styles.pageNum} onClick={() => setPage(total)}>
+          {LastButton}
         </button>
       )}
     </>
