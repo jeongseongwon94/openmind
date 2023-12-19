@@ -59,20 +59,15 @@ export default function AnswerMain({ questionId, answer }) {
 
   return (
     <>
-      <main>
-        {isId && (
-          <ButtonFloating handleButtonClick={handleDeleteButton} text='삭제하기' className={styles.deleteButton} />
-        )}
-        {/* showAnswerForm 사용여부에 따라 textareaForm 표시 */}
-        <Answer
-          answer={answer}
-          textareaValue={textareaValue}
-          textareaClassName={textareaClassName}
-          handleTextareaChange={handleTextareaChange}
-          handleDeleteButton={handleDeleteButton}
-          handleAnswerCreate={handleAnswerCreate}
-        />
-      </main>
+      {/* showAnswerForm 사용여부에 따라 textareaForm 표시 */}
+      <Answer
+        answer={answer}
+        textareaValue={textareaValue}
+        textareaClassName={textareaClassName}
+        handleTextareaChange={handleTextareaChange}
+        handleDeleteButton={handleDeleteButton}
+        handleAnswerCreate={handleAnswerCreate}
+      />
     </>
   );
 }
