@@ -54,9 +54,19 @@ export default function MainSection() {
     setModalOpen(true);
   };
 
+  // 전체 삭제 : api ?
+  const handleDeleteButton = async () => {
+    // api ?
+  };
+
   return (
     <div className={styles.mainSection}>
-      <QuestionBox newData={newData} />
+      <div className={styles.questionBox}>
+        {isId && (
+          <ButtonFloating handleButtonClick={handleDeleteButton} text='삭제하기' className={styles.deleteButton} />
+        )}
+        <QuestionBox newData={newData} />
+      </div>
       {!isId && (
         <ButtonFloating
           className={styles.askQuestionButton}
