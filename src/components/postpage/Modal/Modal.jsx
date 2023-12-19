@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, useContext } from 'react';
 import { SubjectDataContext } from '../../../contexts/SubjectDataContext';
-import { DataChangeDetectionCotext } from '../../../contexts/DataChangeDetectionContext';
+import { DataChangeDetectionContext } from '../../../contexts/DataChangeDetectionContext';
 
 import InputTextArea from '../../common/InputTextarea/InputTextarea';
 import ButtonBox from '../../common/ButtonBox/ButtonBox';
@@ -12,7 +12,7 @@ import closeIcon from '../../../images/icons/close.svg';
 import styles from './Modal.module.css';
 
 export default function Modal({ setModalOpen }) {
-  const setDataChangeDetection = useContext(DataChangeDetectionCotext);
+  const setDataChangeDetection = useContext(DataChangeDetectionContext);
 
   const { id, name, imageSource } = useContext(SubjectDataContext);
   const [content, setContent] = useState('');
