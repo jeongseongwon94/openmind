@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import AnswerMain from '../../page-layout/QuestionPage/Main/AnswerMain';
 import Badge from '../../common/Badge/Badge';
 import DropdownKebab from '../../common/DropdownKebab/DropdownKebab';
@@ -8,9 +8,12 @@ import { useCreateRejectedAnswer, useQuestionDelete } from '../../../hooks/useQu
 import { axiosBaseURL } from '../../../apis/axiosBaseURL';
 
 import styles from './FeedCard.module.css';
+import { SubjectDataContext } from '../../../contexts/SubjectDataContext';
 
-export default function FeedCard({ data, showKebab }) {
+export default function FeedCard({ data }) {
   const { id, answer, createdAt, content, like, dislike } = data;
+  const { id: subjectId } = useContext(SubjectDataContext);
+  const isId = localStorage.getItem('id') == subjectId;
 
   // Kebab
   const noAnswerList = ['답변거절'];
@@ -54,7 +57,7 @@ export default function FeedCard({ data, showKebab }) {
     <div className={styles.feedCard}>
       <div className={styles.badgeAndKebab}>
         {answer === null ? <Badge className='inActive' text='미답변' /> : <Badge className='active' text='답변 완료' />}
-        {showKebab && <DropdownKebab handleButtonClick={handleButtonClick} list={answer ? answerList : noAnswerList} />}
+        {isId && <DropdownKebab handleButtonClick={handleButtonClick} list={answer ? answerList : noAnswerList} />}
       </div>
       <Question createdAt={createdAt} content={content} />
       {answer && <AnswerMain editCheck={editCheck} questionId={id} answer={answer} />}

@@ -16,7 +16,9 @@ export default function AnswerMain({ questionId, answer }) {
 
   const { id: subjectId } = useContext(SubjectDataContext);
 
-  const { answerId, content, createdAt, answerQuestionId, isRejected } = answer || {};
+  const isId = localStorage.getItem('id') == subjectId;
+
+  const { id: answerId, content, createdAt, answerQuestionId, isRejected } = answer || {};
   console.log(answer);
 
   // textarea 입력 값
@@ -58,10 +60,11 @@ export default function AnswerMain({ questionId, answer }) {
   return (
     <>
       <main>
-        <ButtonFloating handleButtonClick={handleDeleteButton} text='삭제하기' className={styles.deleteButton} />
+        {isId && (
+          <ButtonFloating handleButtonClick={handleDeleteButton} text='삭제하기' className={styles.deleteButton} />
+        )}
         {/* showAnswerForm 사용여부에 따라 textareaForm 표시 */}
         <Answer
-          showAnswerForm={true}
           answer={answer}
           textareaValue={textareaValue}
           textareaClassName={textareaClassName}

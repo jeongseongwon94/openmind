@@ -6,7 +6,6 @@ import { getElapsedTime } from '../../../utils/getElapsedTime';
 
 export default function Answer({
   editCheck,
-  showAnswerForm = true,
   answer,
   textareaValue,
   handleTextareaChange,
@@ -17,15 +16,16 @@ export default function Answer({
   console.log(editCheck);
   const { id, content, createdAt, questionId, isRejected } = answer || {};
 
-  const { name, imageSource } = useContext(SubjectDataContext);
+  const { id: subjectId, name, imageSource } = useContext(SubjectDataContext);
+  const isId = localStorage.getItem('id') == subjectId;
 
   // answer 여부에 따라 답변 표시
   return (
     <div className={styles.wrap}>
-      {showAnswerForm && <img className={styles.imageSource} src={imageSource} alt='사용자 이미지' />}
+      {isId && <img className={styles.imageSource} src={imageSource} alt='사용자 이미지' />}
       <div className={styles.answerWrap}>
         <div className={styles.nameWrap}>
-          {showAnswerForm && <span className={styles.name}>{name}</span>}
+          {isId && <span className={styles.name}>{name}</span>}
           {answer && <span className={styles.createdAt}>{getElapsedTime(createdAt)}</span>}
         </div>
 
@@ -53,8 +53,8 @@ export default function Answer({
             <p className={styles.accept}>{content}</p>
           )
         ) : (
-          showAnswerForm && (
-            <>
+          isId && (
+            <form onSubmit={handleAnswerCreate}>
               <textarea
                 className={styles.textarea}
                 name=''
@@ -68,7 +68,7 @@ export default function Answer({
               <ButtonBox className={textareaClassName} text={textareaValue} handleButtonClick={handleAnswerCreate}>
                 답변 완료
               </ButtonBox>
-            </>
+            </form>
           )
         )}
       </div>

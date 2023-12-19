@@ -58,6 +58,7 @@
   max-height: 15.4rem;
   padding: 1.6rem;
   border-radius: 0.8rem;
+  resize: none;
   font-size: var(--font-size-16);
   font-weight: var(--font-weight-regular);
   color: var(--color-gray-60);
