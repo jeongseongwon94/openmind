@@ -16,7 +16,7 @@ export default function QuestionBox({ newData }) {
       </div>
       {count === 0 ? <img className={styles.emptyIcon} src={empty} alt='questionBoxIcon' /> : null}
       <div className={styles.feedCardList}>
-        {sortedResults?.map((result) => <FeedCard key={result.id} data={result} showKebab={true} />) ?? []}
+        {sortedResults?.map((result) => <FeedCard key={result.id} data={result} showKebab={false} />) ?? []}
       </div>
     </div>
   );

@@ -1,16 +1,19 @@
 import { useEffect, useRef, useState, useContext } from 'react';
+import { SubjectDataContext } from '../../../contexts/SubjectDataContext';
+import { DataChangeDetectionCotext } from '../../../contexts/DataChangeDetectionContext';
 
-import InputTextArea from '../common/InputTextarea/InputTextarea';
-import ButtonBox from '../common/ButtonBox/ButtonBox';
+import InputTextArea from '../../common/InputTextarea/InputTextarea';
+import ButtonBox from '../../common/ButtonBox/ButtonBox';
 
-import axiosBaseURL from '../../apis/axiosBaseURL';
-import { SubjectDataContext } from '../../contexts/SubjectDataContext';
+import { axiosBaseURL } from '../../../apis/axiosBaseURL';
 
-import messageIcon from '../../images/icons/messages.svg';
-import closeIcon from '../../images/icons/close.svg';
+import messageIcon from '../../../images/icons/messages.svg';
+import closeIcon from '../../../images/icons/close.svg';
 import styles from './Modal.module.css';
 
-export default function Modal({ setNewData, setModalOpen }) {
+export default function Modal({ setModalOpen }) {
+  const setDataChangeDetection = useContext(DataChangeDetectionCotext);
+
   const { id, name, imageSource } = useContext(SubjectDataContext);
   const [content, setContent] = useState('');
 
@@ -52,7 +55,8 @@ export default function Modal({ setNewData, setModalOpen }) {
         { headers: { 'Content-Type': 'application/json' } }
       );
       setContent('');
-      setNewData(res.data);
+      setDataChangeDetection(true);
+      setModalOpen(false);
     } catch {
       console.error('에러가 발생했습니다!');
     }
@@ -67,23 +71,23 @@ export default function Modal({ setNewData, setModalOpen }) {
             <p className={styles.question}>질문을 작성하세요</p>
           </div>
           <button onClick={closeModal}>
-            <img src={closeIcon} alt="닫기 아이콘" />
+            <img src={closeIcon} alt='닫기 아이콘' />
           </button>
         </div>
         <div className={styles.messenger}>
           <p className={styles.to}>To.</p>
-          <img src={image} className={styles.profile} />
+          <img src={imageSource} className={styles.profile} />
           <p className={styles.name}>{name}</p>
         </div>
         <form onSubmit={handleFormSubmit} className={styles.form}>
           <div className={styles.inputBox}>
             <InputTextArea
-              placeholder="질문을 입력해주세요"
+              placeholder='질문을 입력해주세요'
               value={content}
               handleTextareaChange={handleTextareaChange}
             />
           </div>
-          <ButtonBox type="submit" className="darkButton">
+          <ButtonBox text={content} type='submit' className='darkButton'>
             질문보내기
           </ButtonBox>
         </form>
