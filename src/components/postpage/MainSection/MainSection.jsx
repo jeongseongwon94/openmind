@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from 'react';
 import { useGetData } from '../../../hooks/useGetData';
 import { useIsMobileSize } from '../../../hooks/useIsMobileSize';
 import { SubjectDataContext } from '../../../contexts/SubjectDataContext';
-import { DataChangeDetectionCotext } from '../../../contexts/DataChangeDetectionContext';
+import { DataChangeDetectionContext } from '../../../contexts/DataChangeDetectionContext';
 
 import { axiosBaseURL } from '../../../apis/axiosBaseURL';
 
@@ -54,7 +54,7 @@ export default function MainSection() {
 
   return (
     <div className={styles.mainSection}>
-      <DataChangeDetectionCotext.Provider value={setDataChangeDetection}>
+      <DataChangeDetectionContext.Provider value={setDataChangeDetection}>
         <QuestionBox newData={newData} />
         <ButtonFloating
           className={styles.askQuestionButton}
@@ -62,7 +62,7 @@ export default function MainSection() {
           text={isMobilSize ? `질문 작성` : `질문 작성하기`}
         />
         {modalOpen && <Modal setModalOpen={setModalOpen} />}
-      </DataChangeDetectionCotext.Provider>
+      </DataChangeDetectionContext.Provider>
     </div>
   );
 }
