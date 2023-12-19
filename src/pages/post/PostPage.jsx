@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import { SubjectDataContext } from '../../contexts/SubjectDataContext';
 import { useGetData } from '../../hooks/useGetData';
 
+import Header from '../../components/page-layout/QuestionPage/Layout/Header';
 import MainSection from '../../components/postpage/MainSection/MainSection';
 
 import styles from './PostPage.module.css';
@@ -17,7 +18,7 @@ export default function PostPage() {
   return (
     <div className={styles.postPage}>
       <SubjectDataContext.Provider value={data}>
-        {/* <Header /> */}
+        <Header />
         <MainSection />
       </SubjectDataContext.Provider>
     </div>
