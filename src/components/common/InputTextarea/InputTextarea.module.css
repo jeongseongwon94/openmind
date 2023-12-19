@@ -1,7 +1,6 @@
 .textarea {
   width: 100%;
-  max-width: 33.6rem;
-  max-height: 14rem;
+  height: 100%;
   padding: 1.6rem;
   resize: none;
   background: var(--color-background-text-area);
@@ -12,8 +11,7 @@
 }
 
 .textarea:focus {
-  outline: none;
-  border: 1px solid var(--color-border-focusing);
+  outline: 1px solid var(--color-border-focusing);
 }
 
 .textarea::placeholder {
