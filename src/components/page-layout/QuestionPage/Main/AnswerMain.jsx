@@ -10,11 +10,13 @@ import { useQuestionDelete } from '../../../../hooks/useQuestion.js';
 
 import styles from './AnswerMain.module.css';
 
-export default function AnswerMain({ answer }) {
-  const { id } = useParams();
-
+export default function AnswerMain({ questionId, answer }) {
   console.log(`AnswerMain>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>`);
-  const { answerId, content, createdAt, questionId, isRejected } = answer || {};
+  console.log(questionId);
+
+  const { id: subjectId } = useContext(SubjectDataContext);
+
+  const { answerId, content, createdAt, answerQuestionId, isRejected } = answer || {};
   console.log(answer);
 
   // textarea 입력 값
@@ -30,47 +32,44 @@ export default function AnswerMain({ answer }) {
     setTextareaClassName('darkButton');
   }, [textareaClassName]);
 
-  // 전체 삭제 : list데이터 merge 이후 다시 확인
+  // 전체 삭제 : api ?
   const handleDeleteButton = async () => {
-    useQuestionDelete(`questions/${localStorageId}/`);
+    // api ?
   };
 
-  // 답변하기 : list데이터 merge 이후 다시 확인
+  // 답변하기 : 수정이후 삭제 된 리스트를 새로 보여주는 기능 추가 필요
   const handleAnswerCreate = async () => {
-    // const questionId = questionResult[0].id;
-    console.log(id);
-    // await axiosBaseURL.post(
-    //   `questions/${questionId}/answers/`,
-    //   {
-    //     content: textareaValue,
-    //     isRejected: false,
-    //   },
-    //   {
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //     },
-    //   }
-    // );
+    // 커스텀 훅으로 사용하고싶으나 405error발생 : 수정필요
+    // await useAnswerCreate(`questions/${questionId}/`,  );
+    await axiosBaseURL.post(
+      `questions/${questionId}/answers/`,
+      {
+        content: textareaValue,
+        isRejected: false,
+      },
+      {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    );
   };
-
-  // Kebab 리스트
-  const list = ['수정하기', '삭제하기', '답변거절'];
 
   return (
-    <main>
-      {/* <ButtonFloating handleButtonClick={handleDeleteButton} text='삭제하기' className={styles.deleteButton} /> */}
-      {/* <DropdownKebab list={list} /> */}
-
-      {/* showAnswerForm 사용여부에 따라 textareaForm 표시*/}
-      <Answer
-        showAnswerForm={true}
-        answer={answer}
-        textareaValue={textareaValue}
-        textareaClassName={textareaClassName}
-        handleTextareaChange={handleTextareaChange}
-        handleDeleteButton={handleDeleteButton}
-        handleAnswerCreate={handleAnswerCreate}
-      />
-    </main>
+    <>
+      <main>
+        <ButtonFloating handleButtonClick={handleDeleteButton} text='삭제하기' className={styles.deleteButton} />
+        {/* showAnswerForm 사용여부에 따라 textareaForm 표시 */}
+        <Answer
+          showAnswerForm={true}
+          answer={answer}
+          textareaValue={textareaValue}
+          textareaClassName={textareaClassName}
+          handleTextareaChange={handleTextareaChange}
+          handleDeleteButton={handleDeleteButton}
+          handleAnswerCreate={handleAnswerCreate}
+        />
+      </main>
+    </>
   );
 }

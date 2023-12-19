@@ -5,13 +5,16 @@ import styles from './Answer.module.css';
 import { getElapsedTime } from '../../../utils/getElapsedTime';
 
 export default function Answer({
-  showAnswerForm,
+  editCheck,
+  showAnswerForm = true,
   answer,
   textareaValue,
   handleTextareaChange,
   textareaClassName,
   handleAnswerCreate,
 }) {
+  console.log(`editCheck?>>>>>>>>>>>>>>>>>`);
+  console.log(editCheck);
   const { id, content, createdAt, questionId, isRejected } = answer || {};
 
   const { name, imageSource } = useContext(SubjectDataContext);
@@ -20,7 +23,6 @@ export default function Answer({
   return (
     <div className={styles.wrap}>
       {showAnswerForm && <img className={styles.imageSource} src={imageSource} alt='사용자 이미지' />}
-
       <div className={styles.answerWrap}>
         <div className={styles.nameWrap}>
           {showAnswerForm && <span className={styles.name}>{name}</span>}
@@ -29,7 +31,23 @@ export default function Answer({
 
         {/* answer O -> 답변, X : form */}
         {answer ? (
-          isRejected ? (
+          editCheck ? (
+            <>
+              <textarea
+                className={styles.textarea}
+                name=''
+                id=''
+                cols='30'
+                rows='10'
+                placeholder='답변을 입력해주세요'
+                onInput={handleTextareaChange}
+                value={textareaValue}
+              ></textarea>
+              <ButtonBox className={textareaClassName} text={textareaValue} handleButtonClick={handleAnswerCreate}>
+                답변 완료
+              </ButtonBox>
+            </>
+          ) : isRejected ? (
             <p className={styles.reject}>답변 거절</p>
           ) : (
             <p className={styles.accept}>{content}</p>

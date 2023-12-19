@@ -2,9 +2,9 @@ import { useContext } from 'react';
 import { SubjectDataContext } from '../../../../contexts/SubjectDataContext';
 import ShareBox from '../../../common/ShareBox/ShareBox';
 import { answerHeaderLogo } from './util';
-import styles from './Layout.module.css';
+import styles from './Header.module.css';
 
-export default function Layout() {
+export default function Header() {
   const { imageSource, name } = useContext(SubjectDataContext);
 
   return (

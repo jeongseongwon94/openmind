@@ -1,13 +1,6 @@
-main {
-  width: 100%;
-  /* FeedCard 컴포넌트 생성 전 임시 */
-  margin: 189px auto;
-  max-width: 648px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .deleteButton {
   /* TODO */
+  position: absolute;
+  top: 0;
+  right: 21%;
 }
