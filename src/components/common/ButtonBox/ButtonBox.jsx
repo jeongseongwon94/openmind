@@ -1,6 +1,6 @@
 import styles from './ButtonBox.module.css';
 
-export default function ButtonBox({ children, className, text = true, handleButtonClick }) {
+export default function ButtonBox({ children, className, text, handleButtonClick }) {
   return (
     <button
       className={`${styles.button} ${styles[`${className}`]}`}
