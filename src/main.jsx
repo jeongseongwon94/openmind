@@ -23,7 +23,7 @@ const router = createBrowserRouter([
     element: <PostPage />,
   },
   {
-    path: 'post/:id/answer',
+    path: '/post/:id/answer',
     element: <AnswerPage />,
   },
 ]);
