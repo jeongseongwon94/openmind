@@ -1,25 +1,16 @@
-import { useState } from 'react';
-import styles from './CardPagenation.module.css';
 import Pagenation from '../ui-pagenation/Pagenation';
-import PagenationWrap from '../ui-pagenation-wrap/PagenationWrap';
+import styles from './CardPagenation.module.css';
 
-export default function CardPagenation({ className }) {
-  const [currentValue, setCurrentValue] = useState(1);
-  const totalValue = 5;
+export default function CardPagenation({ count, LIMIT, currentPage, setPage }) {
+  const totalValue = Math.ceil(count / LIMIT);
 
-  const handleChangeValue = (newValue) => {
-    setCurrentValue(newValue);
+  const handleChangeValue = async (newValue) => {
+    setPage(newValue);
   };
 
-  const handleOnClick = (value) => {};
-
-  const handleOnEnter = (value) => {};
-
   return (
-    <div className={styles[`${className}`]}>
-      <PagenationWrap start='<' end='>' handleOnClick={handleOnClick} handleOnEnter={handleOnEnter}>
-        <Pagenation current={currentValue} total={totalValue} handleChangeValue={handleChangeValue} />
-      </PagenationWrap>
+    <div className={styles.buttonWrap}>
+      <Pagenation current={currentPage} total={totalValue} handleChangeValue={handleChangeValue} setPage={setPage} />
     </div>
   );
 }

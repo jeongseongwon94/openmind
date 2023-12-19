@@ -1,13 +1,12 @@
 import styles from './UserCard.module.css';
+import messagesIcon from '../../../../images/icons/messages.svg';
+import { useNavigate } from 'react-router-dom';
 
-export default function UserCard({
-  name = '아초는고양이',
-  imageSource = '/src/images/profile.svg',
-  questionCount = '9개',
-  messagesIcon = '/src/images/icons/messages.svg',
-}) {
+export default function UserCard({ name, imageSource, questionCount, id }) {
+  const navigateToFeed = useNavigate();
+
   return (
-    <div className={styles.cardWrap}>
+    <div className={styles.cardWrap} onClick={() => navigateToFeed(`/post/${id}`)}>
       <div className={styles.profileWrap}>
         <img className={styles.profileImage} src={imageSource} alt='' />
         <span className={styles.profileText}>{name}</span>
