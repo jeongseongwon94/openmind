@@ -8,7 +8,7 @@ export default function Header() {
   const { imageSource, name } = useContext(SubjectDataContext);
 
   return (
-    <header>
+    <div className={styles.header}>
       <div className={styles.headerBackground}></div>
       <div className={styles.headerWrap}>
         <img className={styles.answerHeaderLogo} src={answerHeaderLogo} alt='' />
@@ -16,6 +16,6 @@ export default function Header() {
         <span className={styles.userId}>{name}</span>
         <ShareBox baseURL='http://127.0.0.1:5173' className={styles.test} />
       </div>
-    </header>
+    </div>
   );
 }
