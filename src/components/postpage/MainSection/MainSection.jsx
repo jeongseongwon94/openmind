@@ -17,6 +17,8 @@ export default function MainSection() {
   const url = `subjects/${id}/questions/`;
   const { data, loading } = useGetData(url);
 
+  const isId = localStorage.getItem('id') == id;
+
   const [newData, setNewData] = useState({});
 
   const [dataChangeDetection, setDataChangeDetection] = useState(false);
@@ -54,15 +56,16 @@ export default function MainSection() {
 
   return (
     <div className={styles.mainSection}>
-      <DataChangeDetectionContext.Provider value={setDataChangeDetection}>
-        <QuestionBox newData={newData} />
+      <QuestionBox newData={newData} />
+      {!isId && (
         <ButtonFloating
           className={styles.askQuestionButton}
           handleButtonClick={handleShowModal}
           text={isMobilSize ? `질문 작성` : `질문 작성하기`}
         />
-        {modalOpen && <Modal setModalOpen={setModalOpen} />}
-      </DataChangeDetectionContext.Provider>
+      )}
+
+      {modalOpen && <Modal setNewData={setNewData} setModalOpen={setModalOpen} />}
     </div>
   );
 }
