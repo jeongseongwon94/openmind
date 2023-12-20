@@ -53,3 +53,15 @@
   background-repeat: no-repeat;
   background-position: center;
 }
+
+@media screen and (max-width: 375px) {
+  .userId {
+    font-size: var(--font-size-24);
+  }
+
+  .imageSource {
+    margin-top: 2rem;
+    width: 10.4rem;
+    height: 10.4rem;
+  }
+}

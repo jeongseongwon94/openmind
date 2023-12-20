@@ -1,8 +1,12 @@
 import { useContext } from 'react';
-import { SubjectDataContext } from '../../../contexts/SubjectDataContext';
+
 import ButtonBox from '../ButtonBox/ButtonBox';
-import styles from './Answer.module.css';
+import InputTextArea from '../InputTextarea/InputTextarea';
+
+import { SubjectDataContext } from '../../../contexts/SubjectDataContext';
 import { getElapsedTime } from '../../../utils/getElapsedTime';
+
+import styles from './Answer.module.css';
 
 export default function Answer({
   answer,
@@ -30,16 +34,12 @@ export default function Answer({
           editCheck ? (
             <>
               <form onSubmit={handleAnswerEdit}>
-                <textarea
-                  className={styles.textarea}
-                  name=''
-                  id=''
-                  cols='30'
-                  rows='10'
+                <InputTextArea
+                  className={styles.answerTextArea}
                   placeholder='답변을 입력해주세요'
-                  onInput={handleTextareaChange}
+                  handleTextareaChange={handleTextareaChange}
                   value={textareaValue}
-                ></textarea>
+                />
                 <ButtonBox className='darkButton' text={textareaValue}>
                   수정 완료
                 </ButtonBox>
@@ -52,16 +52,12 @@ export default function Answer({
           )
         ) : isId ? (
           <form onSubmit={handleAnswerCreate}>
-            <textarea
-              className={styles.textarea}
-              name=''
-              id=''
-              cols='30'
-              rows='10'
+            <InputTextArea
+              className={styles.answerTextArea}
               placeholder='답변을 입력해주세요'
-              onInput={handleTextareaChange}
+              handleTextareaChange={handleTextareaChange}
               value={textareaValue}
-            ></textarea>
+            />
             <ButtonBox className='darkButton' text={textareaValue}>
               답변 완료
             </ButtonBox>
