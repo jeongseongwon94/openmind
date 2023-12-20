@@ -35,3 +35,8 @@ export const useCreateRejectedAnswer = async (url) => {
 export const useQuestionDelete = async (url) => {
   axiosBaseURL.delete(url);
 };
+
+// 전체 질문 삭제
+export const useQuestionDeleteAll = async (url) => {
+  axiosBaseURL.delete(url);
+};

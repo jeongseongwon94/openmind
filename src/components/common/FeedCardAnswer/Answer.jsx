@@ -5,21 +5,18 @@ import styles from './Answer.module.css';
 import { getElapsedTime } from '../../../utils/getElapsedTime';
 
 export default function Answer({
-  editCheck,
   answer,
   textareaValue,
   handleTextareaChange,
-  textareaClassName,
+  editCheck,
+  handleAnswerEdit,
   handleAnswerCreate,
 }) {
-  console.log(`editCheck?>>>>>>>>>>>>>>>>>`);
-  console.log(editCheck);
-  const { id, content, createdAt, questionId, isRejected } = answer || {};
+  const { content, createdAt, isRejected } = answer || {};
 
   const { id: subjectId, name, imageSource } = useContext(SubjectDataContext);
   const isId = localStorage.getItem('id') == subjectId;
 
-  // answer 여부에 따라 답변 표시
   return (
     <div className={styles.wrap}>
       {isId && <img className={styles.imageSource} src={imageSource} alt='사용자 이미지' />}
@@ -29,23 +26,24 @@ export default function Answer({
           {answer && <span className={styles.createdAt}>{getElapsedTime(createdAt)}</span>}
         </div>
 
-        {/* answer O -> 답변, X : form */}
         {answer ? (
           editCheck ? (
             <>
-              <textarea
-                className={styles.textarea}
-                name=''
-                id=''
-                cols='30'
-                rows='10'
-                placeholder='답변을 입력해주세요'
-                onInput={handleTextareaChange}
-                value={textareaValue}
-              ></textarea>
-              <ButtonBox className={textareaClassName} text={textareaValue} handleButtonClick={handleAnswerCreate}>
-                답변 완료
-              </ButtonBox>
+              <form onSubmit={handleAnswerEdit}>
+                <textarea
+                  className={styles.textarea}
+                  name=''
+                  id=''
+                  cols='30'
+                  rows='10'
+                  placeholder='답변을 입력해주세요'
+                  onInput={handleTextareaChange}
+                  value={textareaValue}
+                ></textarea>
+                <ButtonBox className='darkButton' text={textareaValue} handleButtonClick={handleAnswerEdit}>
+                  수정 완료
+                </ButtonBox>
+              </form>
             </>
           ) : isRejected ? (
             <p className={styles.reject}>답변 거절</p>
@@ -65,7 +63,7 @@ export default function Answer({
                 onInput={handleTextareaChange}
                 value={textareaValue}
               ></textarea>
-              <ButtonBox className={textareaClassName} text={textareaValue} handleButtonClick={handleAnswerCreate}>
+              <ButtonBox className='darkButton' text={textareaValue} handleButtonClick={handleAnswerCreate}>
                 답변 완료
               </ButtonBox>
             </form>

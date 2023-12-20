@@ -54,9 +54,13 @@ export default function MainSection() {
     setModalOpen(true);
   };
 
-  // 전체 삭제 : api ?
   const handleDeleteButton = async () => {
-    // api ?
+    try {
+      await axiosBaseURL.delete(`subjects/${id}/`);
+      setDataChangeDetection(true);
+    } catch (error) {
+      console.log(`handleDeleteButton Error : ${error}`);
+    }
   };
 
   return (
