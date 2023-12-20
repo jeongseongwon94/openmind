@@ -9,7 +9,8 @@
   flex-direction: column;
   position: absolute;
   padding: 0.4px 0rem;
-  bottom: -9rem;
+  top: 2rem;
+  left: -8rem;
   border-radius: 0.8rem;
   border: 0.1rem solid var(--color-gray-30);
   box-shadow: var(--box-shadow-1pt);
