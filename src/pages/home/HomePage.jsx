@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import ButtonBox from '../../components/common/ButtonBox/ButtonBox';
+import SignInForm from '../../components/SignInForm/SignInForm';
+import DropdownOrder from '../../components/common/DropdownOrder/DropdownOrder';
 
 import { isExistedName } from './nameValidation';
 import { createUserData } from './createUserData';
@@ -10,10 +12,10 @@ import logo from '../../images/logo.svg';
 import arrowIcon from '../../images/icons/arrow.svg';
 
 import styles from './HomePage.module.css';
-import SignInForm from '../../components/SignInForm/SignInForm';
 
 export default function HomePage() {
   const [user, setUser] = useState('');
+  const [clickList, setClickList] = useState('ㅤ분야');
   const navigateToFeed = useNavigate();
   const navigateToList = useNavigate();
 
@@ -24,11 +26,20 @@ export default function HomePage() {
     setUser(e.target.value);
   };
 
+  const handleCategoryClick = (e) => {
+    setClickList(e.target.innerText);
+  };
+
   const handleNameSubmit = async (e) => {
     e.preventDefault();
     setUser('');
 
-    const isExisted = await isExistedName(user);
+    if (clickList.includes('분야')) {
+      alert(`전문 분야를 선택해주세요.`);
+      return;
+    }
+
+    const isExisted = await isExistedName(`[${clickList}] ${user}`);
     if (isExisted) {
       alert('이미 존재하는 이름입니다. 다른 이름을 입력해주세요.');
       return;
@@ -38,7 +49,7 @@ export default function HomePage() {
       return;
     }
 
-    const data = await createUserData(user);
+    const data = await createUserData(`[${clickList}] ${user}`);
     const { id, name } = data;
 
     localStorage.setItem('id', id);
@@ -61,17 +72,28 @@ export default function HomePage() {
     navigateToFeed(`/post/${id}/answer`);
   };
 
+  const signUPLabelText =
+    clickList === 'ㅤ분야'
+      ? `신입 보살님\n먼저 전문 분야를 선택해주세요.`
+      : `${clickList} 전문가시군요.\n이름을 알려주시면 신당을 배정해드리겠습니다.`;
+
   return (
     <div className={styles.container}>
       <img src={logo} alt='오픈마인드 로고' className={styles.logo} />
       <div className={styles.btnContainer}>
         <ButtonBox className='lightButton' text='질문하러가기' handleButtonClick={() => navigateToList('/list')}>
           <span className={styles.btnText}>
-            보살님 만나러가기
+            고민 토로하기
             <img className={styles.arrowIcon} src={arrowIcon} alt='오른쪽을 가리키는 화살표 아이콘' />
           </span>
         </ButtonBox>
       </div>
+      {!id && (
+        <div className={styles.dropdown}>
+          <p className={styles.dropdownTitle}>{`환영합니다! 어떤 고민을 들어주실 수 있나요?`}</p>
+          <DropdownOrder list={list} clickList={clickList} handleButtonClick={handleCategoryClick} />
+        </div>
+      )}
       {id ? (
         <SignInForm
           handleSubmit={handleIdSubmit}
@@ -86,7 +108,7 @@ export default function HomePage() {
       ) : (
         <SignInForm
           handleSubmit={handleNameSubmit}
-          labelText={`환영합니다.\n이름을 알려주시면 신당을 배정해드리겠습니다.`}
+          labelText={signUPLabelText}
           inputDefaultText='이름을 입력하세요.'
           handleInputChange={handleInputChange}
           value={user}
@@ -98,3 +120,5 @@ export default function HomePage() {
     </div>
   );
 }
+
+const list = ['건강', '고민', '연애', '운세', '진로'];

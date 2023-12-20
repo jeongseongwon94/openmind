@@ -30,6 +30,26 @@
   filter: invert(17%) sepia(12%) saturate(2905%) hue-rotate(338deg) brightness(94%) contrast(88%);
 }
 
+.dropdown {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.6rem;
+  padding: 2.4rem;
+  width: calc(100% - var(--size-mobile-padding) * 2);
+  border-radius: 1.6rem;
+  background: var(--color-background-primary);
+}
+
+.dropdownTitle {
+  text-align: center;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-14);
+  line-height: 150%;
+  white-space: pre-wrap;
+}
+
 @media screen and (min-width: 375px) {
   .logo {
     width: calc(100% - var(--size-tablet-padding) * 2);
@@ -45,6 +65,16 @@
 
   .btnText {
     gap: 0.8rem;
+  }
+
+  .dropdown {
+    padding: 3.2rem;
+    width: calc(100% - var(--size-tablet-padding) * 2);
+    max-width: 40rem;
+  }
+
+  .dropdownTitle {
+    font-size: var(--font-size-16);
   }
 }
 

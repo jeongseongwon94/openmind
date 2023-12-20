@@ -10,9 +10,9 @@
 }
 
 .lightButton {
-  outline: 0.1rem solid var(--color-brown-40);
-  color: var(--color-brown-40);
-  background: var(--color-brown-10);
+  outline: 0.1rem solid var(--color-brown-50);
+  color: var(--color-brown-50);
+  background: var(--color-brown-30);
 }
 
 .lightButton:hover {
@@ -20,33 +20,31 @@
 }
 
 .lightButton:active {
-  outline: 0.2rem solid var(--color-brown-40);
   background: var(--color-brown-20);
 }
 
 .lightButton:disabled {
-  outline: 0.1rem solid var(--color-brown-30);
-  color: var(--color-brown-30);
   background: var(--color-brown-10);
   cursor: default;
 }
 
 .darkButton {
   color: var(--color-gray-10);
-  background: var(--color-brown-40);
+  outline: var(--color-brown-50);
+  background: var(--color-brown-50);
 }
 
 .darkButton:hover {
-  outline: 0.2rem solid var(--color-brown-50);
+  outline: 0.2rem solid var(--color-brown-40);
 }
 
 .darkButton:active {
-  background: var(--color-brown-50);
+  background: var(--color-brown-40);
 }
 
 .darkButton:disabled {
   outline: none;
-  background: var(--color-brown-30);
+  background: #9b585f;
   cursor: default;
 }
 
