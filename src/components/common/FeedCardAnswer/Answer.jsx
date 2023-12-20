@@ -17,7 +17,6 @@ export default function Answer({
   const { id: subjectId, name, imageSource } = useContext(SubjectDataContext);
   const isId = localStorage.getItem('id') == subjectId;
 
-  // answer 여부에 따라 답변 표시
   return (
     <div className={styles.wrap}>
       {isId && <img className={styles.imageSource} src={imageSource} alt='사용자 이미지' />}
@@ -27,7 +26,6 @@ export default function Answer({
           {answer && <span className={styles.createdAt}>{getElapsedTime(createdAt)}</span>}
         </div>
 
-        {/* answer O -> 답변, X : form */}
         {answer ? (
           editCheck ? (
             <>

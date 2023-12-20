@@ -8,13 +8,11 @@ export default function AnswerMain({ editCheck, questionId, answer, setEditCheck
 
   const { id: answerId, content } = answer || {};
 
-  // textarea
   const [textareaValue, setTextareaValue] = useState(content);
   const handleTextareaChange = (e) => {
     setTextareaValue(e.target.value);
   };
 
-  // 답변 하기
   const handleAnswerCreate = async (e) => {
     e.preventDefault();
 
@@ -38,7 +36,6 @@ export default function AnswerMain({ editCheck, questionId, answer, setEditCheck
     }
   };
 
-  // 답변 수정하기
   const handleAnswerEdit = async (e) => {
     e.preventDefault();
 
@@ -63,15 +60,15 @@ export default function AnswerMain({ editCheck, questionId, answer, setEditCheck
   };
 
   return (
-    // <>
-    <Answer
-      answer={answer}
-      textareaValue={textareaValue}
-      handleTextareaChange={handleTextareaChange}
-      editCheck={editCheck}
-      handleAnswerEdit={handleAnswerEdit}
-      handleAnswerCreate={handleAnswerCreate}
-    />
-    // </>
+    <>
+      <Answer
+        answer={answer}
+        textareaValue={textareaValue}
+        handleTextareaChange={handleTextareaChange}
+        editCheck={editCheck}
+        handleAnswerEdit={handleAnswerEdit}
+        handleAnswerCreate={handleAnswerCreate}
+      />
+    </>
   );
 }

@@ -14,11 +14,11 @@ export default function AnswerPage() {
   }
 
   return (
-    <div className={styles.answerPage}>
-      <SubjectDataContext.Provider value={data}>
+    <SubjectDataContext.Provider value={data}>
+      <div className={styles.answerPage}>
         <Header />
         <MainSection />
-      </SubjectDataContext.Provider>
-    </div>
+      </div>
+    </SubjectDataContext.Provider>
   );
 }

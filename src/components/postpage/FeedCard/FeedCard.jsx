@@ -17,11 +17,9 @@ export default function FeedCard({ data }) {
 
   const setDataChangeDetection = useContext(DataChangeDetectionContext);
 
-  // Kebab
   const noAnswerList = ['답변거절'];
   const answerList = ['수정하기', '삭제하기'];
 
-  // 수정
   const [editCheck, setEditCheck] = useState(false);
 
   const handleButtonClick = async (e) => {

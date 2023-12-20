@@ -16,11 +16,11 @@ export default function PostPage() {
   }
 
   return (
-    <div className={styles.postPage}>
-      <SubjectDataContext.Provider value={data}>
+    <SubjectDataContext.Provider value={data}>
+      <div className={styles.postPage}>
         <Header />
         <MainSection />
-      </SubjectDataContext.Provider>
-    </div>
+      </div>
+    </SubjectDataContext.Provider>
   );
 }
