@@ -1,73 +1,77 @@
-import { useContext } from 'react';
-import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { SubjectDataContext } from '../../../../contexts/SubjectDataContext';
+import { useContext, useState } from 'react';
 import Answer from '../../../common/FeedCardAnswer/Answer.jsx';
-import ButtonFloating from '../../../common/ButtonFloating/ButtonFloating';
-import DropdownKebab from '../../../common/DropdownKebab/DropdownKebab';
 import { axiosBaseURL } from '../../../../apis/axiosBaseURL.js';
-import { useQuestionDelete } from '../../../../hooks/useQuestion.js';
+import { DataChangeDetectionContext } from '../../../../contexts/DataChangeDetectionContext.js';
 
-import styles from './AnswerMain.module.css';
+export default function AnswerMain({ editCheck, questionId, answer, setEditCheck }) {
+  const setDataChangeDetection = useContext(DataChangeDetectionContext);
 
-export default function AnswerMain({ questionId, answer }) {
-  console.log(`AnswerMain>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>`);
-  console.log(questionId);
+  const { id: answerId, content } = answer || {};
 
-  const { id: subjectId } = useContext(SubjectDataContext);
-
-  const isId = localStorage.getItem('id') == subjectId;
-
-  const { id: answerId, content, createdAt, answerQuestionId, isRejected } = answer || {};
-  console.log(answer);
-
-  // textarea 입력 값
-  // const [textareaValue, setTextareaValue] = useState(answerData.content);
+  // textarea
   const [textareaValue, setTextareaValue] = useState(content);
   const handleTextareaChange = (e) => {
     setTextareaValue(e.target.value);
   };
 
-  // textarea 입력 시 버튼 클래스 변경
-  const [textareaClassName, setTextareaClassName] = useState('lightButton');
-  useEffect(() => {
-    setTextareaClassName('darkButton');
-  }, [textareaClassName]);
+  // 답변 하기
+  const handleAnswerCreate = async (e) => {
+    e.preventDefault();
 
-  // 전체 삭제 : api ?
-  const handleDeleteButton = async () => {
-    // api ?
+    try {
+      await axiosBaseURL.post(
+        `questions/${questionId}/answers/`,
+        {
+          content: textareaValue,
+          isRejected: false,
+        },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+      setDataChangeDetection(true);
+      setEditCheck(false);
+    } catch (error) {
+      console.log(`handleAnswerCreate Error : ${error}`);
+    }
   };
 
-  // 답변하기 : 수정이후 삭제 된 리스트를 새로 보여주는 기능 추가 필요
-  const handleAnswerCreate = async () => {
-    // 커스텀 훅으로 사용하고싶으나 405error발생 : 수정필요
-    // await useAnswerCreate(`questions/${questionId}/`,  );
-    await axiosBaseURL.post(
-      `questions/${questionId}/answers/`,
-      {
-        content: textareaValue,
-        isRejected: false,
-      },
-      {
-        headers: {
-          'Content-Type': 'application/json',
+  // 답변 수정하기
+  const handleAnswerEdit = async (e) => {
+    e.preventDefault();
+
+    try {
+      await axiosBaseURL.put(
+        `answers/${answerId}/`,
+        {
+          content: textareaValue,
+          isRejected: false,
         },
-      }
-    );
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+      setDataChangeDetection(true);
+      setEditCheck(false);
+    } catch (error) {
+      console.log(`handleAnswerEdit Error : ${error}`);
+    }
   };
 
   return (
-    <>
-      {/* showAnswerForm 사용여부에 따라 textareaForm 표시 */}
-      <Answer
-        answer={answer}
-        textareaValue={textareaValue}
-        textareaClassName={textareaClassName}
-        handleTextareaChange={handleTextareaChange}
-        handleDeleteButton={handleDeleteButton}
-        handleAnswerCreate={handleAnswerCreate}
-      />
-    </>
+    // <>
+    <Answer
+      answer={answer}
+      textareaValue={textareaValue}
+      handleTextareaChange={handleTextareaChange}
+      editCheck={editCheck}
+      handleAnswerEdit={handleAnswerEdit}
+      handleAnswerCreate={handleAnswerCreate}
+    />
+    // </>
   );
 }

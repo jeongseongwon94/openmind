@@ -54,28 +54,36 @@ export default function MainSection() {
     setModalOpen(true);
   };
 
-  // 전체 삭제 : api ?
+  // 전체 삭제 : 404에러발생 ?
   const handleDeleteButton = async () => {
-    // api ?
+    console.log(id);
+    try {
+      await axiosBaseURL.delete(`subjects/${id}/`);
+      setDataChangeDetection(true);
+    } catch (error) {
+      console.log(`handleDeleteButton Error : ${error}`);
+    }
   };
 
   return (
     <div className={styles.mainSection}>
-      <div className={styles.questionBox}>
-        {isId && (
-          <ButtonFloating handleButtonClick={handleDeleteButton} text='삭제하기' className={styles.deleteButton} />
+      <DataChangeDetectionContext.Provider value={setDataChangeDetection}>
+        <div className={styles.questionBox}>
+          {isId && (
+            <ButtonFloating handleButtonClick={handleDeleteButton} text='삭제하기' className={styles.deleteButton} />
+          )}
+          <QuestionBox newData={newData} />
+        </div>
+        {!isId && (
+          <ButtonFloating
+            className={styles.askQuestionButton}
+            handleButtonClick={handleShowModal}
+            text={isMobilSize ? `질문 작성` : `질문 작성하기`}
+          />
         )}
-        <QuestionBox newData={newData} />
-      </div>
-      {!isId && (
-        <ButtonFloating
-          className={styles.askQuestionButton}
-          handleButtonClick={handleShowModal}
-          text={isMobilSize ? `질문 작성` : `질문 작성하기`}
-        />
-      )}
 
-      {modalOpen && <Modal setNewData={setNewData} setModalOpen={setModalOpen} />}
+        {modalOpen && <Modal setNewData={setNewData} setModalOpen={setModalOpen} />}
+      </DataChangeDetectionContext.Provider>
     </div>
   );
 }
