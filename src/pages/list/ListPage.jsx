@@ -8,7 +8,7 @@ import ButtonBox from '../../components/common/ButtonBox/ButtonBox';
 import { useIsMobileSize } from '../../hooks/useIsMobileSize';
 import { useIsTabletSize } from '../../hooks/useIsTabletSize';
 import { axiosBaseURL } from '../../apis/axiosBaseURL';
-import logo from '../../images/logo.svg';
+import logo from '../../images/logo2.png';
 import arrowImage from '../../images/icons/arrow.svg';
 import styles from './ListPage.module.css';
 
@@ -62,43 +62,45 @@ export default function ListPage() {
   };
 
   return (
-    <div className={styles.body}>
-      <header className={styles.header}>
-        <Link to='/'>
-          <img className={styles.logo} src={logo} alt='로고 이미지' />
-        </Link>
-        <div className={styles.buttonWidth}>
-          <ButtonBox className={'lightButton'} handleButtonClick={handleIsUserID} text='답변하러가기'>
-            <div className={styles.answerButton}>
-              답변하러 가기 <img className={styles.arrow} src={arrowImage} alt='화살표 이미지' />
+    <div className={styles.bodyOut}>
+      <div className={styles.bodyIn}>
+        <header className={styles.header}>
+          <Link to='/'>
+            <img className={styles.logo} src={logo} alt='로고 이미지' />
+          </Link>
+          <div className={styles.buttonWidth}>
+            <ButtonBox className={'lightButton'} handleButtonClick={handleIsUserID} text='고민 떼어주기'>
+              <div className={styles.answerButton}>
+                고민 떼어주기 <img className={styles.arrow} src={arrowImage} alt='화살표 이미지' />
+              </div>
+            </ButtonBox>
+          </div>
+        </header>
+        <main className={styles.main}>
+          <div className={styles.mainHeader}>
+            <div className={styles.mainText}>
+              <span>어떤 고민이 있으신가요?</span>
             </div>
-          </ButtonBox>
-        </div>
-      </header>
-      <main className={styles.main}>
-        <div className={styles.mainHeader}>
-          <div className={styles.mainText}>
-            <span>누구에게 질문할까요?</span>
+            <div className={styles.dropdownBox}>
+              <DropdownOrder list={orderList} handleButtonClick={handleOrderClick} clickList={clickList} />
+            </div>
           </div>
-          <div className={styles.dropdownBox}>
-            <DropdownOrder list={orderList} handleButtonClick={handleOrderClick} clickList={clickList} />
+          <div className={styles.cardList}>
+            {sortedCardList?.map((data) => (
+              <UserCard
+                id={data.id}
+                key={data.id}
+                name={data.name}
+                imageSource={data.imageSource}
+                questionCount={data.questionCount}
+              />
+            ))}
           </div>
-        </div>
-        <div className={styles.cardList}>
-          {sortedCardList?.map((data) => (
-            <UserCard
-              id={data.id}
-              key={data.id}
-              name={data.name}
-              imageSource={data.imageSource}
-              questionCount={data.questionCount}
-            />
-          ))}
-        </div>
-        <div className={styles.pageList}>
-          <CardPagenation count={count} LIMIT={LIMIT} currentPage={currentPage} setPage={setPage} />
-        </div>
-      </main>
+          <div className={styles.pageList}>
+            <CardPagenation count={count} LIMIT={LIMIT} currentPage={currentPage} setPage={setPage} />
+          </div>
+        </main>
+      </div>
     </div>
   );
 }

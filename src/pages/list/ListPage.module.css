@@ -1,14 +1,24 @@
-.body {
-  background: var(--color-gray-20);
-  width: 100%;
+.bodyOut {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url(../../images/ListPageBackground.png);
   height: 100vh;
+}
+
+.bodyIn {
+  margin: 10rem 0;
+  padding: 0 4.2rem 3rem;
+  max-width: 110rem;
+  border-radius: 1rem;
+  background: var(--color-brown-10);
 }
 
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 4rem 13rem 4.6rem;
+  padding: 3.2rem 5rem 4.6rem;
 }
 
 .buttonWidth {
@@ -28,7 +38,7 @@
 }
 
 .arrow {
-  filter: invert(17%) sepia(20%) saturate(1848%) hue-rotate(338deg) brightness(95%) contrast(88%);
+  filter: invert(9%) sepia(51%) saturate(6075%) hue-rotate(340deg) brightness(112%) contrast(120%);
   width: 1.6rem;
 }
 
@@ -38,7 +48,6 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  padding: 0 13rem 9.7rem;
 }
 
 .mainHeader {
@@ -50,6 +59,7 @@
 .mainText {
   font-size: var(--font-size-40);
   padding-bottom: 1.2rem;
+  font-weight: var(--font-weight-medium);
 }
 
 .dropdownBox {
@@ -66,10 +76,6 @@
   grid-template-rows: repeat(2, 18.7rem);
   gap: 2rem;
   padding-bottom: 4rem;
-}
-
-.pageList {
-  padding-bottom: 9.7rem;
 }
 
 @media (max-width: 768px) {
@@ -98,11 +104,10 @@
     flex-direction: row;
     padding: 0 2.4rem;
     width: 35.5rem;
-    height: 3.4rem;
   }
 
   .mainText {
-    font-size: var(--font-size-24);
+    font-size: var(--font-size-20);
     width: 100%;
   }
   .dropdownBox {
