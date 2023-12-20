@@ -8,11 +8,13 @@ import HomePage from './pages/home/HomePage';
 import ListPage from './pages/list/ListPage';
 import PostPage from './pages/post/PostPage';
 import AnswerPage from './pages/answer/AnswerPage';
+import ErrorPage from './pages/errorpage/ErrorPage';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <HomePage />,
+    errorElement: <ErrorPage />,
   },
   {
     path: '/list',
