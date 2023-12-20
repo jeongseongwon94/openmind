@@ -34,7 +34,7 @@ export default function HomePage() {
     e.preventDefault();
     setUser('');
 
-    if (clickList === '분야') {
+    if (clickList === `분야`) {
       alert(`전문 분야를 선택해주세요.`);
       return;
     }
@@ -73,7 +73,7 @@ export default function HomePage() {
   };
 
   const signUPLabelText =
-    clickList === '분야'
+    clickList === 'ㅤ분야'
       ? `신입 보살님\n먼저 전문 분야를 선택해주세요.`
       : `${clickList} 전문가시군요.\n이름을 알려주시면 신당을 배정해드리겠습니다.`;
 
