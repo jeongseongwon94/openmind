@@ -39,16 +39,6 @@
   font-weight: var(--font-weight-medium);
 }
 
-@media screen and (max-width: 375px) {
-  .profileImage {
-    width: 3.2rem;
-    height: 3.2rem;
-  }
-  .name {
-    font-size: var(--font-size-14);
-  }
-}
-
 /* Form : answer(X) */
 .answerTextArea {
   height: 15.4rem;
@@ -88,4 +78,28 @@
   color: var(--color-red-50);
   font-size: var(--font-size-16);
   font-weight: var(--font-weight-regular);
+}
+
+@media screen and (max-width: 768px) {
+  .wrap {
+    width: auto;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .wrap {
+    width: 24.7rem;
+  }
+
+  .imageSource {
+    width: 3.2rem;
+    height: 3.2rem;
+  }
+  .name {
+    font-size: var(--font-size-14);
+    white-space: nowrap;
+  }
+  .accept {
+    font-size: var(--font-size-14);
+  }
 }

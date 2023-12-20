@@ -23,8 +23,8 @@
   filter: invert(29%) sepia(57%) saturate(6427%) hue-rotate(336deg) brightness(74%) contrast(105%);
 
   @media (max-width: 375px) {
-    width: 2.2rem;
-    height: 2.2rem;
+    width: 2rem;
+    height: 2rem;
   }
 }
 
@@ -35,7 +35,7 @@
   line-height: 2.5rem;
 
   @media (max-width: 375px) {
-    font-size: var(--font-size-18);
+    font-size: var(--font-size-16);
     line-height: 2.4rem;
   }
 }

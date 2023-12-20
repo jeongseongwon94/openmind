@@ -17,3 +17,9 @@
   font-size: var(--font-size-18);
   line-height: 2.4rem;
 }
+
+@media screen and (max-width: 375px) {
+  .content {
+    font-size: var(--font-size-16);
+  }
+}
