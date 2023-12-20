@@ -8,7 +8,7 @@ import DropdownOrder from '../../components/common/DropdownOrder/DropdownOrder';
 import { isExistedName } from './nameValidation';
 import { createUserData } from './createUserData';
 
-import logo from '../../images/logo.svg';
+import logo from '../../images/homeLogo.png';
 import arrowIcon from '../../images/icons/arrow.svg';
 
 import styles from './HomePage.module.css';
@@ -79,7 +79,7 @@ export default function HomePage() {
 
   return (
     <div className={styles.container}>
-      <img src={logo} alt='오픈마인드 로고' className={styles.logo} />
+      <img src={logo} alt='무엇이든 물어보살 로고' className={styles.logo} />
       <div className={styles.btnContainer}>
         <ButtonBox className='lightButton' text='질문하러가기' handleButtonClick={() => navigateToList('/list')}>
           <span className={styles.btnText}>
