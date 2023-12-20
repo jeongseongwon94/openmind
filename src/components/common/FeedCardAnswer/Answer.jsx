@@ -19,10 +19,10 @@ export default function Answer({
 
   return (
     <div className={styles.wrap}>
-      {isId && <img className={styles.imageSource} src={imageSource} alt='사용자 이미지' />}
+      <img className={styles.imageSource} src={imageSource} alt='사용자 이미지' />
       <div className={styles.answerWrap}>
         <div className={styles.nameWrap}>
-          {isId && <span className={styles.name}>{name}</span>}
+          <span className={styles.name}>{name}</span>
           {answer && <span className={styles.createdAt}>{getElapsedTime(createdAt)}</span>}
         </div>
 
@@ -50,24 +50,24 @@ export default function Answer({
           ) : (
             <p className={styles.accept}>{content}</p>
           )
+        ) : isId ? (
+          <form onSubmit={handleAnswerCreate}>
+            <textarea
+              className={styles.textarea}
+              name=''
+              id=''
+              cols='30'
+              rows='10'
+              placeholder='답변을 입력해주세요'
+              onInput={handleTextareaChange}
+              value={textareaValue}
+            ></textarea>
+            <ButtonBox className='darkButton' text={textareaValue} handleButtonClick={handleAnswerCreate}>
+              답변 완료
+            </ButtonBox>
+          </form>
         ) : (
-          isId && (
-            <form onSubmit={handleAnswerCreate}>
-              <textarea
-                className={styles.textarea}
-                name=''
-                id=''
-                cols='30'
-                rows='10'
-                placeholder='답변을 입력해주세요'
-                onInput={handleTextareaChange}
-                value={textareaValue}
-              ></textarea>
-              <ButtonBox className='darkButton' text={textareaValue} handleButtonClick={handleAnswerCreate}>
-                답변 완료
-              </ButtonBox>
-            </form>
-          )
+          <p className={styles.accept}>곧 답변을 드리겠습니다.</p>
         )}
       </div>
     </div>

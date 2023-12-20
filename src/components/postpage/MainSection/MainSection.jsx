@@ -9,7 +9,6 @@ import { axiosBaseURL } from '../../../apis/axiosBaseURL';
 import QuestionBox from '../QuestionBox/QuestionBox';
 import ButtonFloating from '../../common/ButtonFloating/ButtonFloating';
 import Modal from '../Modal/Modal';
-
 import styles from './MainSection.module.css';
 
 export default function MainSection() {

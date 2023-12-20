@@ -1,14 +1,17 @@
 import { useContext, useState } from 'react';
+
 import AnswerMain from '../../page-layout/QuestionPage/Main/AnswerMain';
 import Badge from '../../common/Badge/Badge';
 import DropdownKebab from '../../common/DropdownKebab/DropdownKebab';
 import Question from '../Question/Question';
 import Reaction from '../../common/Reaction/Reaction';
+
 import { DataChangeDetectionContext } from '../../../contexts/DataChangeDetectionContext';
+import { SubjectDataContext } from '../../../contexts/SubjectDataContext';
+
 import { axiosBaseURL } from '../../../apis/axiosBaseURL';
 
 import styles from './FeedCard.module.css';
-import { SubjectDataContext } from '../../../contexts/SubjectDataContext';
 
 export default function FeedCard({ data }) {
   const { id, answer, createdAt, content, like, dislike } = data;
@@ -64,7 +67,7 @@ export default function FeedCard({ data }) {
         {isId && <DropdownKebab handleButtonClick={handleButtonClick} list={answer ? answerList : noAnswerList} />}
       </div>
       <Question createdAt={createdAt} content={content} />
-      {isId && <AnswerMain editCheck={editCheck} questionId={id} answer={answer} setEditCheck={setEditCheck} />}
+      <AnswerMain editCheck={editCheck} questionId={id} answer={answer} setEditCheck={setEditCheck} />
       <Reaction id={id} like={like} dislike={dislike} />
     </div>
   );
