@@ -30,15 +30,18 @@
 
 .deleteButton {
   display: flex;
-  width: 10rem;
-  height: 3.5rem;
+  width: 11rem;
+  height: 4rem;
   padding: 1.2rem 2.4rem;
+  justify-content: center;
   align-items: center;
-  font-size: var(--font-size-14);
+  font-size: var(--font-size-16);
   margin-bottom: 0.9rem;
 
   @media (max-width: 375px) {
-    width: 7rem;
-    height: 2.5rem;
+    width: 8rem;
+    height: 3.5rem;
+    padding: 0.6rem 1.2rem;
+    font-size: 1.3rem;
   }
 }

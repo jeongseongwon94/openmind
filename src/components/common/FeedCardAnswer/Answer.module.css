@@ -3,8 +3,6 @@
   display: flex;
   column-gap: 1.2rem;
   width: 59.2rem;
-  margin-top: 2rem;
-  margin-left: 2rem;
   row-gap: 12px;
 }
 
@@ -89,7 +87,7 @@
 
 /* Form :answer(O), isRejected(X) */
 .accept {
-  color: var(--color-gray-60);
+  color: var(--color-brown-40);
   font-size: var(--font-size-16);
   font-weight: var(--font-weight-regular);
 }
