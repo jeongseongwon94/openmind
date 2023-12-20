@@ -9,7 +9,7 @@
   position: absolute;
   width: 120rem;
   height: 23.4rem;
-  background-image: url('/src/images/HeaderImg.png');
+  background-image: url('/src/images/HeaderImg2.png');
 }
 
 .headerWrap {
@@ -23,8 +23,8 @@
   z-index: 1;
 }
 
-.answerHeaderLogo {
-  width: 100%;
+.headerLogo {
+  width: 30rem;
   height: 6.7rem;
 }
 
