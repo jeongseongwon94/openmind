@@ -1,3 +1,11 @@
+.label {
+  text-align: center;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-14);
+  line-height: 150%;
+  white-space: pre-wrap;
+}
+
 .inputContainer {
   display: flex;
   align-items: center;
@@ -34,6 +42,10 @@
 }
 
 @media screen and (min-width: 375px) {
+  .label {
+    font-size: var(--font-size-16);
+  }
+
   .inputContainer {
     padding: 1.2rem 1.6rem;
   }

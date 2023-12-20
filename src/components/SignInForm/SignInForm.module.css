@@ -8,22 +8,10 @@
   background: var(--color-background-primary);
 }
 
-.label {
-  text-align: center;
-  color: var(--color-text-secondary);
-  font-size: var(--font-size-14);
-  line-height: 150%;
-  white-space: pre-wrap;
-}
-
 @media screen and (min-width: 375px) {
   .form {
     padding: 3.2rem;
     width: calc(100% - var(--size-tablet-padding) * 2);
     max-width: 40rem;
-  }
-
-  .label {
-    font-size: var(--font-size-16);
   }
 }

@@ -14,10 +14,8 @@ export default function SignInForm({
 }) {
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
-      <label htmlFor={id} className={styles.label}>
-        {labelText}
-      </label>
       <InputField
+        labelText={labelText}
         defaultText={inputDefaultText}
         handleInputChange={handleInputChange}
         value={value}
