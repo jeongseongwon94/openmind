@@ -40,7 +40,7 @@ export default function Answer({
                   onInput={handleTextareaChange}
                   value={textareaValue}
                 ></textarea>
-                <ButtonBox className='darkButton' text={textareaValue} handleButtonClick={handleAnswerEdit}>
+                <ButtonBox className='darkButton' text={textareaValue}>
                   수정 완료
                 </ButtonBox>
               </form>
@@ -62,7 +62,7 @@ export default function Answer({
               onInput={handleTextareaChange}
               value={textareaValue}
             ></textarea>
-            <ButtonBox className='darkButton' text={textareaValue} handleButtonClick={handleAnswerCreate}>
+            <ButtonBox className='darkButton' text={textareaValue}>
               답변 완료
             </ButtonBox>
           </form>
