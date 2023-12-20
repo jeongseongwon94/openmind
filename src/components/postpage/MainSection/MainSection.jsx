@@ -10,7 +10,6 @@ import { axiosBaseURL } from '../../../apis/axiosBaseURL';
 import QuestionBox from '../QuestionBox/QuestionBox';
 import ButtonFloating from '../../common/ButtonFloating/ButtonFloating';
 import Modal from '../Modal/Modal';
-
 import styles from './MainSection.module.css';
 
 export default function MainSection() {
@@ -26,6 +25,7 @@ export default function MainSection() {
   const [modalOpen, setModalOpen] = useState(false);
 
   const isId = localStorage.getItem('id') == id;
+  const { count, results } = newData;
 
   useEffect(() => {
     if (!loading) {
@@ -81,20 +81,22 @@ export default function MainSection() {
   };
 
   const handleDeleteButton = async () => {
-    try {
-      await axiosBaseURL.delete(`subjects/${id}/`);
-      setDataChangeDetection(true);
-    } catch (error) {
-      console.log(`handleDeleteButton Error : ${error}`);
+    for (const item of results) {
+      try {
+        await axiosBaseURL.delete(`questions/${item.id}/`);
+      } catch (error) {
+        console.log(`handleDeleteButton Error : ${error}`);
+      }
     }
+    setDataChangeDetection(true);
   };
 
   return (
     <DataChangeDetectionContext.Provider value={setDataChangeDetection}>
       <div className={styles.mainSection}>
         <div className={styles.questionBox}>
-          {isId && (
-            <ButtonFloating handleButtonClick={handleDeleteButton} text='삭제하기' className={styles.deleteButton} />
+          {isId && count !== 0 && (
+            <ButtonFloating handleButtonClick={handleDeleteButton} text='전체 삭제' className={styles.deleteButton} />
           )}
           <QuestionBox newData={newData} />
         </div>
