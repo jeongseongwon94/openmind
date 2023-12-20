@@ -55,7 +55,7 @@ export default function ListPage() {
           <img className={styles.logo} src={logo} alt='로고 이미지' />
         </Link>
         <div className={styles.buttonWidth}>
-          <ButtonBox className={'lightButton'} handleButtonClick={handleIsUserID}>
+          <ButtonBox className={'lightButton'} handleButtonClick={handleIsUserID} text='답변하러가기'>
             <div className={styles.answerButton}>
               답변하러 가기 <img className={styles.arrow} src={arrowImage} alt='화살표 이미지' />
             </div>
