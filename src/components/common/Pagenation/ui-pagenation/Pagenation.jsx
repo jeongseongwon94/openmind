@@ -3,8 +3,8 @@ import styles from './Pagenation.module.css';
 
 export default function Pagenation({ current, total, handleChangeValue, setPage }) {
   const PAGE_LIMIT = 5;
-  const FirstButton = 'First';
-  const LastButton = 'Last';
+  const FirstButton = '<<';
+  const LastButton = '>>';
   const lt = '<';
   const gt = '>';
   const PAGE_GROUP = Math.ceil(current / PAGE_LIMIT);

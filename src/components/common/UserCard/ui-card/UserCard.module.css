@@ -12,18 +12,18 @@
 .profileWrap {
   display: flex;
   flex-direction: column;
-  row-gap: 1.2rem;
+  row-gap: 2rem;
   width: 100%;
 }
 
 .profileText {
-  font-size: var(--font-size-20);
+  font-size: var(--font-size-18);
 }
 
 .profileImage {
   border-radius: 100%;
-  width: 6rem;
-  height: 6rem;
+  width: 5rem;
+  height: 5rem;
 }
 
 .contentWrap {

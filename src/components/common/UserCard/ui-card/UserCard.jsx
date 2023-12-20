@@ -16,7 +16,7 @@ export default function UserCard({ name, imageSource, questionCount, id }) {
           <img className={styles.messagesIcon} src={messagesIcon} alt='' />
           <span>받은 질문</span>
         </div>
-        <span>{questionCount}</span>
+        <span>{questionCount} 개</span>
       </div>
     </div>
   );
