@@ -2,11 +2,10 @@ import { useState, useEffect } from 'react';
 import { axiosBaseURL } from '../apis/axiosBaseURL';
 
 export const useGetData = (url) => {
-  const [data, setData] = useState({});
+  const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
 
   const getInfo = async () => {
-    setData({});
     setLoading(true);
 
     try {

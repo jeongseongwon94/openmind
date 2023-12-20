@@ -6,6 +6,7 @@ import styles from './QuestionBox.module.css';
 
 export default function QuestionBox({ newData }) {
   const { count, results } = newData;
+
   const sortedResults = results?.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
 
   return (
