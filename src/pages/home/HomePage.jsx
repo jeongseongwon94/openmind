@@ -34,7 +34,7 @@ export default function HomePage() {
     e.preventDefault();
     setUser('');
 
-    if (clickList === `분야`) {
+    if (clickList.includes('분야')) {
       alert(`전문 분야를 선택해주세요.`);
       return;
     }
