@@ -28,6 +28,7 @@
   outline: 0.1rem solid var(--color-brown-30);
   color: var(--color-brown-30);
   background: var(--color-brown-10);
+  cursor: default;
 }
 
 .darkButton {
@@ -46,6 +47,7 @@
 .darkButton:disabled {
   outline: none;
   background: var(--color-brown-30);
+  cursor: default;
 }
 
 @media screen and (max-width: 375px) {

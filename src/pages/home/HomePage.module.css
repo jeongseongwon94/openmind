@@ -1,4 +1,68 @@
-.home {
-  color: cornflowerblue;
-  font-size: 32px;
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2.4rem;
+  height: 100vh;
+  background-color: rgb(238, 223, 205);
+}
+
+.logo {
+  width: calc(100% - var(--size-mobile-padding) * 2);
+  max-width: 24.8rem;
+}
+
+.btnContainer {
+  width: 14.7rem;
+}
+
+.btnText {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.arrowIcon {
+  width: 1.8rem;
+  height: 1.8rem;
+  filter: invert(17%) sepia(12%) saturate(2905%) hue-rotate(338deg) brightness(94%) contrast(88%);
+}
+
+@media screen and (min-width: 375px) {
+  .logo {
+    width: calc(100% - var(--size-tablet-padding) * 2);
+    max-width: 45.6rem;
+  }
+
+  .btnContainer {
+    position: absolute;
+    top: 4.4rem;
+    right: 5rem;
+    width: 19rem;
+  }
+
+  .btnText {
+    gap: 0.8rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .btnContainer {
+    right: 13rem;
+  }
+}
+
+/* input type이 number인 경우, 옆에 화살표가 안나오게 하는 코드 */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox  */
+input[type='number'] {
+  -moz-appearance: textfield;
 }
