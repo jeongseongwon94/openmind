@@ -3,24 +3,26 @@
   align-items: center;
   gap: 0.4rem;
   max-width: 33.6rem;
-  padding: 1.2rem 1.6rem;
+  padding: 0.8rem 1.2rem;
   border: 1px solid var(--color-border-primary);
   border-radius: 0.8rem;
 }
 
 .inputContainer:focus-within {
   border: 1px solid var(--color-border-focusing);
+  color: #cccccc;
 }
 
 .icon {
   width: 2rem;
+  filter: invert(84%) sepia(1%) saturate(0%) hue-rotate(47deg) brightness(98%) contrast(96%);
 }
 
 .input {
   width: calc(100% - 2.4rem);
   border: none;
   color: var(--color-text-primary);
-  font-size: var(--font-size-16);
+  font-size: var(--font-size-14);
 }
 
 .input::placeholder {
@@ -29,4 +31,14 @@
 
 .input:focus {
   outline: none;
+}
+
+@media screen and (min-width: 375px) {
+  .inputContainer {
+    padding: 1.2rem 1.6rem;
+  }
+
+  .input {
+    font-size: var(--font-size-16);
+  }
 }

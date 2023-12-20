@@ -1,25 +1,21 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import { useNavigate, Navigate } from 'react-router-dom';
 
-import InputField from '../../components/common/InputField/InputField';
 import ButtonBox from '../../components/common/ButtonBox/ButtonBox';
 
+import { isExistedName } from './nameValidation';
 import { createUserData } from './createUserData';
 
 import logo from '../../images/logo.svg';
-import personIcon from '../../images/icons/person.svg';
 import arrowIcon from '../../images/icons/arrow.svg';
 
 import styles from './HomePage.module.css';
-import { isExistedName } from './nameValidation';
+import SignInForm from '../../components/SignInForm/SignInForm';
 
 export default function HomePage() {
   const [user, setUser] = useState('');
   const navigateToFeed = useNavigate();
   const navigateToList = useNavigate();
-
-  // if (id) return <Navigate to='/list' />;
 
   const id = localStorage.getItem('id');
   const name = localStorage.getItem(`${id}`);
@@ -38,7 +34,7 @@ export default function HomePage() {
       return;
     }
 
-    if (confirm(`${user}님, 상담실을 배정해드릴까요?`) !== true) {
+    if (confirm(`${user}님, 신당을 배정해드릴까요?`) !== true) {
       return;
     }
 
@@ -48,7 +44,7 @@ export default function HomePage() {
     localStorage.setItem('id', id);
     localStorage.setItem(`${id}`, name);
 
-    alert(`당신의 상담실은 ${id}호입니다. 다시 입장하실 때에는 상담실 번호를 입력해주세요.`);
+    alert(`당신의 신당 암호는 ${id}입니다.\n다시 입장하실 때에는 신당 암호를 입력해주세요.`);
 
     navigateToFeed(`/post/${id}/answer`);
   };
@@ -58,7 +54,7 @@ export default function HomePage() {
     setUser('');
 
     if (user !== id) {
-      alert('상담실 번호를 다시 확인해주세요.');
+      alert(`신당 암호를 다시 확인해주세요.\n혹여 다른 분의 신당에 무단 침입할 시 불이익이 있을 수 있습니다.`);
       return;
     }
 
@@ -71,47 +67,33 @@ export default function HomePage() {
       <div className={styles.btnContainer}>
         <ButtonBox className='lightButton' text='질문하러가기' handleButtonClick={() => navigateToList('/list')}>
           <span className={styles.btnText}>
-            질문하러가기
+            보살님 만나러가기
             <img className={styles.arrowIcon} src={arrowIcon} alt='오른쪽을 가리키는 화살표 아이콘' />
           </span>
         </ButtonBox>
       </div>
       {id ? (
-        <form className={styles.form} onSubmit={handleIdSubmit}>
-          <label htmlFor='enrolled' className={styles.label}>
-            {`${name}님 고민을 들어주실 준비가 되셨습니까?`}
-          </label>
-          <InputField
-            defaultText='상담실 번호를 입력하세요.'
-            iconSrc={personIcon}
-            iconAlt='사람 모양 아이콘'
-            handleInputChange={handleInputChange}
-            value={user}
-            id='enrolled'
-            type='number'
-          />
-          <ButtonBox className='darkButton' text={user}>
-            상담실 입장하기
-          </ButtonBox>
-        </form>
+        <SignInForm
+          handleSubmit={handleIdSubmit}
+          labelText={`${name}님\n고민을 들어주실 준비가 되셨습니까?`}
+          inputDefaultText='신당 암호를 입력하세요.'
+          handleInputChange={handleInputChange}
+          value={user}
+          id='enrolled'
+          type='number'
+          buttonText='신당 입장하기'
+        />
       ) : (
-        <form className={styles.form} onSubmit={handleNameSubmit}>
-          <label htmlFor='new' className={styles.label}>
-            환영합니다. 이름을 알려주시면 상담실을 배정해드리겠습니다.
-          </label>
-          <InputField
-            defaultText='이름을 입력하세요'
-            iconSrc={personIcon}
-            iconAlt='사람 모양 아이콘'
-            handleInputChange={handleInputChange}
-            value={user}
-            id='new'
-            type='text'
-          />
-          <ButtonBox className='darkButton' text={user}>
-            상담실 배정 받기
-          </ButtonBox>
-        </form>
+        <SignInForm
+          handleSubmit={handleNameSubmit}
+          labelText={`환영합니다.\n이름을 알려주시면 신당을 배정해드리겠습니다.`}
+          inputDefaultText='이름을 입력하세요.'
+          handleInputChange={handleInputChange}
+          value={user}
+          id='new'
+          type='text'
+          buttonText='신당 배정받기'
+        />
       )}
     </div>
   );

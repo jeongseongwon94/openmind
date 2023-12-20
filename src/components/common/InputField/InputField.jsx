@@ -1,9 +1,10 @@
+import inputIcon from '../../../images/icons/inputIcon.svg';
 import styles from './InputField.module.css';
 
-export default function InputField({ defaultText, iconSrc, iconAlt, value, handleInputChange, id, type }) {
+export default function InputField({ defaultText, value, handleInputChange, id, type }) {
   return (
     <div className={styles.inputContainer}>
-      <img className={styles.icon} src={iconSrc} alt={iconAlt} />
+      <img className={styles.icon} src={inputIcon} alt='사람 모양 아이콘' />
       <input
         className={styles.input}
         type={type}
@@ -15,13 +16,3 @@ export default function InputField({ defaultText, iconSrc, iconAlt, value, handl
     </div>
   );
 }
-
-// function Form({hendleSubmit, defaultText, handleInputChange, user, id, type}) {
-//   return (
-//     <form>
-//       <label htmlFor="">
-
-//       </label>
-//     </form>
-//   )
-// }

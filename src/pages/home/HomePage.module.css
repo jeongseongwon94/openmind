@@ -9,36 +9,19 @@
 }
 
 .logo {
-  width: 45.6rem;
-}
-
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.6rem;
-  padding: 3.2rem;
-  width: 40rem;
-  border-radius: 1.6rem;
-  background: var(--color-background-primary);
-}
-
-.label {
-  color: var(--color-text-secondary);
-  font-size: var(--font-size-14);
+  width: calc(100% - var(--size-mobile-padding) * 2);
+  max-width: 24.8rem;
 }
 
 .btnContainer {
-  position: absolute;
-  top: 4.5rem;
-  right: 13rem;
-  width: 16.1rem;
+  width: 14.7rem;
 }
 
 .btnText {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0.8rem;
+  gap: 0.4rem;
 }
 
 .arrowIcon {
@@ -47,6 +30,31 @@
   filter: invert(17%) sepia(12%) saturate(2905%) hue-rotate(338deg) brightness(94%) contrast(88%);
 }
 
+@media screen and (min-width: 375px) {
+  .logo {
+    width: calc(100% - var(--size-tablet-padding) * 2);
+    max-width: 45.6rem;
+  }
+
+  .btnContainer {
+    position: absolute;
+    top: 4.4rem;
+    right: 5rem;
+    width: 19rem;
+  }
+
+  .btnText {
+    gap: 0.8rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .btnContainer {
+    right: 13rem;
+  }
+}
+
+/* input type이 number인 경우, 옆에 화살표가 안나오게 하는 코드 */
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
