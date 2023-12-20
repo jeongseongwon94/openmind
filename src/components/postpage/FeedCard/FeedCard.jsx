@@ -20,8 +20,7 @@ export default function FeedCard({ data }) {
 
   const setDataChangeDetection = useContext(DataChangeDetectionContext);
 
-  const noAnswerList = ['답변거절'];
-  const answerList = ['수정하기', '삭제하기'];
+  const answerList = { answer: ['수정하기', '삭제하기'], noAnswer: ['답변거절'] };
 
   const [editCheck, setEditCheck] = useState(false);
 
@@ -64,7 +63,12 @@ export default function FeedCard({ data }) {
     <div className={styles.feedCard}>
       <div className={styles.badgeAndKebab}>
         {answer === null ? <Badge className='inActive' text='미답변' /> : <Badge className='active' text='답변 완료' />}
-        {isId && <DropdownKebab handleButtonClick={handleButtonClick} list={answer ? answerList : noAnswerList} />}
+        {isId && (
+          <DropdownKebab
+            handleButtonClick={handleButtonClick}
+            list={answer ? answerList.answer : answerList.noAnswer}
+          />
+        )}
       </div>
       <Question createdAt={createdAt} content={content} />
       <AnswerMain editCheck={editCheck} questionId={id} answer={answer} setEditCheck={setEditCheck} />
