@@ -17,6 +17,7 @@ export default function ListPage() {
   const [cardList, setCardList] = useState([]);
   const [count, setCount] = useState(0);
   const [currentPage, setPage] = useState(1);
+  const [clickList, setClickList] = useState('최신순');
   const navigateToFeed = useNavigate();
   const orderList = ['이름순', '최신순'];
   const sortedCardList = cardList.sort((a, b) => b[sort] - a[sort]);
@@ -48,6 +49,18 @@ export default function ListPage() {
     getId == null ? navigateToFeed(`/`) : navigateToFeed(`/post/${getId}/answer`);
   };
 
+  const handleOrderClick = (e) => {
+    if (e.target.innerText === '이름순') {
+      setSort('name');
+      setClickList('이름순');
+    }
+
+    if (e.target.innerText === '최신순') {
+      setSort('time');
+      setClickList('최신순');
+    }
+  };
+
   return (
     <div className={styles.body}>
       <header className={styles.header}>
@@ -68,9 +81,7 @@ export default function ListPage() {
             <span>누구에게 질문할까요?</span>
           </div>
           <div className={styles.dropdownBox}>
-            <DropdownOrder list={orderList} setSort={setSort}>
-              {orderList[1]}
-            </DropdownOrder>
+            <DropdownOrder list={orderList} handleButtonClick={handleOrderClick} clickList={clickList} />
           </div>
         </div>
         <div className={styles.cardList}>
