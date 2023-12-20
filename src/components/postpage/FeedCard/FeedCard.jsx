@@ -64,7 +64,7 @@ export default function FeedCard({ data }) {
         {isId && <DropdownKebab handleButtonClick={handleButtonClick} list={answer ? answerList : noAnswerList} />}
       </div>
       <Question createdAt={createdAt} content={content} />
-      {answer && <AnswerMain editCheck={editCheck} questionId={id} answer={answer} setEditCheck={setEditCheck} />}
+      {isId && <AnswerMain editCheck={editCheck} questionId={id} answer={answer} setEditCheck={setEditCheck} />}
       <Reaction id={id} like={like} dislike={dislike} />
     </div>
   );
