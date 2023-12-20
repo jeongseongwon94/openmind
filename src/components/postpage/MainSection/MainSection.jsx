@@ -60,22 +60,23 @@ export default function MainSection() {
   };
 
   return (
-    <div className={styles.mainSection}>
-      <div className={styles.questionBox}>
-        {isId && (
-          <ButtonFloating handleButtonClick={handleDeleteButton} text='삭제하기' className={styles.deleteButton} />
+    <DataChangeDetectionContext.Provider value={setDataChangeDetection}>
+      <div className={styles.mainSection}>
+        <div className={styles.questionBox}>
+          {isId && (
+            <ButtonFloating handleButtonClick={handleDeleteButton} text='삭제하기' className={styles.deleteButton} />
+          )}
+          <QuestionBox newData={newData} />
+        </div>
+        {!isId && (
+          <ButtonFloating
+            className={styles.askQuestionButton}
+            handleButtonClick={handleShowModal}
+            text={isMobilSize ? `질문 작성` : `질문 작성하기`}
+          />
         )}
-        <QuestionBox newData={newData} />
+        {modalOpen && <Modal setNewData={setNewData} setModalOpen={setModalOpen} />}
       </div>
-      {!isId && (
-        <ButtonFloating
-          className={styles.askQuestionButton}
-          handleButtonClick={handleShowModal}
-          text={isMobilSize ? `질문 작성` : `질문 작성하기`}
-        />
-      )}
-
-      {modalOpen && <Modal setNewData={setNewData} setModalOpen={setModalOpen} />}
-    </div>
+    </DataChangeDetectionContext.Provider>
   );
 }
