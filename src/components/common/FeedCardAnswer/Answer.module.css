@@ -68,14 +68,14 @@
 
 /* Form :answer(O), isRejected(X) */
 .accept {
-  color: var(--color-brown-40);
+  color: var(--color-brown-50);
   font-size: var(--font-size-16);
   font-weight: var(--font-weight-regular);
 }
 
 /* Form : answer(O), isRejected(O) */
 .reject {
-  color: var(--color-red-50);
+  color: var(--color-brown-50);
   font-size: var(--font-size-16);
   font-weight: var(--font-weight-regular);
 }
