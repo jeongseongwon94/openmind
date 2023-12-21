@@ -32,7 +32,7 @@ export default function Answer({
 
         {answer ? (
           editCheck ? (
-            <form onSubmit={handleAnswerEdit}>
+            <form className={styles.form} onSubmit={handleAnswerEdit}>
               <InputTextArea
                 className={styles.answerTextArea}
                 placeholder='답변을 입력해주세요'
@@ -49,7 +49,7 @@ export default function Answer({
             <p className={styles.accept}>{content}</p>
           )
         ) : isId ? (
-          <form onSubmit={handleAnswerCreate}>
+          <form className={styles.form} onSubmit={handleAnswerCreate}>
             <InputTextArea
               className={styles.answerTextArea}
               placeholder='답변을 입력해주세요'

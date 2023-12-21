@@ -19,14 +19,14 @@
   line-height: 1.8rem;
 }
 
-.button:hover {
-  color: var(--color-text-primary);
-  filter: invert(0%) sepia(3%) saturate(0%) hue-rotate(287deg) brightness(102%) contrast(100%);
-}
-
-.button:active {
+.button.likeClicked {
   color: var(--color-text-selected);
   filter: invert(37%) sepia(87%) saturate(3598%) hue-rotate(203deg) brightness(99%) contrast(92%);
+}
+
+.button.dislikeClicked {
+  color: var(--color-text-primary);
+  filter: invert(0%) sepia(3%) saturate(0%) hue-rotate(287deg) brightness(102%) contrast(100%);
 }
 
 .img {

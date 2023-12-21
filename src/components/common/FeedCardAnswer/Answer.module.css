@@ -81,7 +81,7 @@
 
 @media screen and (max-width: 768px) {
   .wrap {
-    width: auto;
+    width: 100%;
   }
 }
 
@@ -101,4 +101,8 @@
   .accept {
     font-size: var(--font-size-14);
   }
+}
+
+.form {
+  width: 100%;
 }
