@@ -22,8 +22,7 @@
 }
 
 .icon {
-  width: 2rem;
-  filter: invert(84%) sepia(1%) saturate(0%) hue-rotate(47deg) brightness(98%) contrast(96%);
+  width: 3.2rem;
 }
 
 .input {
@@ -47,6 +46,7 @@
   }
 
   .inputContainer {
+    gap: 0.8rem;
     padding: 1.2rem 1.6rem;
   }
 

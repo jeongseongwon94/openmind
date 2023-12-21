@@ -1,20 +1,22 @@
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  gap: 2.4rem;
-  height: 100vh;
-  background-color: rgb(238, 223, 205);
+  gap: 0.8rem;
+  padding: 17rem 0rem 5rem;
+  min-height: 100vh;
+  background: url('../../images/homebg.png');
+  background-size: cover;
 }
 
 .logo {
   width: calc(100% - var(--size-mobile-padding) * 2);
-  max-width: 24.8rem;
+  margin-bottom: 1.6rem;
 }
 
 .btnContainer {
-  width: 14.7rem;
+  width: 12.7rem;
+  margin-bottom: 1.6rem;
 }
 
 .btnText {
@@ -27,7 +29,7 @@
 .arrowIcon {
   width: 1.8rem;
   height: 1.8rem;
-  filter: invert(17%) sepia(12%) saturate(2905%) hue-rotate(338deg) brightness(94%) contrast(88%);
+  filter: invert(9%) sepia(51%) saturate(6075%) hue-rotate(340deg) brightness(112%) contrast(120%);
 }
 
 .dropdown {
@@ -53,14 +55,15 @@
 @media screen and (min-width: 375px) {
   .logo {
     width: calc(100% - var(--size-tablet-padding) * 2);
-    max-width: 45.6rem;
+    max-width: 36rem;
+    margin-bottom: 2.8rem;
   }
 
   .btnContainer {
     position: absolute;
     top: 4.4rem;
     right: 5rem;
-    width: 19rem;
+    width: 16.1rem;
   }
 
   .btnText {

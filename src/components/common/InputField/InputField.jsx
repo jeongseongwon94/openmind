@@ -1,4 +1,4 @@
-import inputIcon from '../../../images/icons/inputIcon.svg';
+import inputIcon from '../../../images/fan.png';
 import styles from './InputField.module.css';
 
 export default function InputField({ labelText, defaultText, value, handleInputChange, id, type }) {
