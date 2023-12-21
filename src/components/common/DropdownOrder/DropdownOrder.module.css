@@ -59,14 +59,14 @@
   font-size: var(--font-size-14);
 }
 
-.orderList :active {
-  color: var(--color-blue-50);
-}
-
 .order {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 0.6rem 1.6rem;
   cursor: pointer;
+}
+
+.order:hover {
+  color: var(--color-brown-50);
 }

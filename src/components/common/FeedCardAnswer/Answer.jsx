@@ -61,7 +61,7 @@ export default function Answer({
             </ButtonBox>
           </form>
         ) : (
-          <p className={styles.accept}>잠시만 기다려 주세요. 당신의 고민을 해결 중 입니다.</p>
+          <p className={styles.queue}>잠시만 기다려 주세요. 당신의 고민을 해결 중 입니다.</p>
         )}
       </div>
     </div>

@@ -79,6 +79,13 @@
   font-weight: var(--font-weight-regular);
 }
 
+.queue {
+  font-size: var(--font-size-16);
+  font-weight: var(--font-weight-regular);
+  overflow-wrap: break-word;
+  color: var(--color-brown-50);
+}
+
 @media screen and (max-width: 768px) {
   .wrap {
     width: 100%;
