@@ -1,0 +1,39 @@
+.background {
+  background: url('../../images/errorbg.png');
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 38rem 0 0 6rem;
+  gap: 2.4rem;
+}
+
+.errorMessageImage {
+  width: 65rem;
+}
+
+.errorMessage {
+  font-size: var(--font-size-20);
+  font-family: 'Nanum Myeongjo', serif;
+  font-weight: var(--font-weight-bold);
+}
+
+.btnContainer {
+  width: 22.3rem;
+}
+
+.btnText {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: var(--font-size-20);
+}
+
+.arrowIcon {
+  width: 2.2rem;
+  height: 2.2rem;
+  filter: invert(9%) sepia(95%) saturate(4167%) hue-rotate(352deg) brightness(92%) contrast(104%);
+}
