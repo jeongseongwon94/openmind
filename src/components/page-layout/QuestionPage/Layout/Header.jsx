@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { SubjectDataContext } from '../../../../contexts/SubjectDataContext';
 import ShareBox from '../../../common/ShareBox/ShareBox';
 import headerLogo from '../../../../images/logo2.png';
-import headerImg2 from '../../../../images/HeaderImg2.png';
+import headerImg3 from '../../../../images/HeaderImg3.png';
 import styles from './Header.module.css';
 
 export default function Header() {
@@ -12,7 +12,7 @@ export default function Header() {
 
   return (
     <div className={styles.header}>
-      <img className={styles.headerImg} src={headerImg2} alt='페이지 상단부분 노란색 배경' />
+      <img className={styles.headerImg} src={headerImg3} alt='페이지 상단부분 노란색 배경 풀사이즈' />
       <div className={styles.headerWrap}>
         <button className={styles.logoButton} onClick={() => navigateToListPage('/list')}>
           <img className={styles.headerLogo} src={headerLogo} alt='logo' />
