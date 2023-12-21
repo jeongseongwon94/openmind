@@ -15,12 +15,16 @@
   display: flex;
   justify-content: center;
   gap: 0.8rem;
+  width: 71.6rem;
+  @media (max-width: 375px) {
+    width: 29rem;
+  }
 }
 
 .messagesIcon {
   width: 2.4rem;
   height: 2.4rem;
-  filter: invert(29%) sepia(57%) saturate(6427%) hue-rotate(336deg) brightness(74%) contrast(105%);
+  filter: invert(12%) sepia(39%) saturate(7104%) hue-rotate(345deg) brightness(87%) contrast(110%);
 
   @media (max-width: 375px) {
     width: 2rem;
@@ -29,7 +33,7 @@
 }
 
 .messages {
-  color: var(--color-brown-40);
+  color: var(--color-brown-50);
   font-family: Actor;
   font-size: var(--font-size-20);
   line-height: 2.5rem;

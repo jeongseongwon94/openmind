@@ -1,9 +1,11 @@
 .container {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   gap: 0.8rem;
-  padding: 17rem 0rem 5rem;
+  padding-top: 8rem;
+  /* padding: 17rem 0rem 5rem; */
   min-height: 100vh;
   background: url('../../images/homebg.png');
   background-size: cover;
