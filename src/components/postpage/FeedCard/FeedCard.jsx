@@ -20,7 +20,7 @@ export default function FeedCard({ data }) {
 
   const setDataChangeDetection = useContext(DataChangeDetectionContext);
 
-  const answerList = { answer: ['수정하기', '삭제하기'], noAnswer: ['답변거절'] };
+  const answerList = { answer: ['수정하기', '삭제하기'], noAnswer: ['답변거절', '삭제하기'] };
 
   const [editCheck, setEditCheck] = useState(false);
 
