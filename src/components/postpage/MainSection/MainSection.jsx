@@ -16,6 +16,7 @@ export default function MainSection() {
   const { id } = useContext(SubjectDataContext);
   const LIMIT = 3;
   const page = useIsScrolled();
+  const totalDataUrl = `subjects/${id}/questions/`;
   const url = `subjects/${id}/questions/?limit=${LIMIT}`;
   const newUrl = `subjects/${id}/questions/?limit=${LIMIT}&offset=${LIMIT * page}`;
   const { data, loading } = useGetData(url);
@@ -25,7 +26,7 @@ export default function MainSection() {
   const [modalOpen, setModalOpen] = useState(false);
 
   const isId = localStorage.getItem('id') == id;
-  const { count, results } = newData;
+  const { count } = newData;
 
   useEffect(() => {
     if (!loading) {
@@ -81,14 +82,20 @@ export default function MainSection() {
   };
 
   const handleDeleteButton = async () => {
-    for (const item of results) {
-      try {
-        await axiosBaseURL.delete(`questions/${item.id}/`);
-      } catch (error) {
-        console.log(`handleDeleteButton Error : ${error}`);
+    try {
+      const response = await axiosBaseURL.get(totalDataUrl);
+      const { results } = response.data;
+      for (const item of results) {
+        try {
+          await axiosBaseURL.delete(`questions/${item.id}/`);
+        } catch (error) {
+          console.error(`Error deleting question ${item.id}: ${error}`);
+        }
       }
+      setDataChangeDetection(true);
+    } catch (error) {
+      console.error(`Error fetching data: ${error}`);
     }
-    setDataChangeDetection(true);
   };
 
   return (
