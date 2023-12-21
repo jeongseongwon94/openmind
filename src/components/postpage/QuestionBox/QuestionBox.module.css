@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 71.6rem;
+  width: auto;
   height: auto;
   padding: 1.6rem;
   gap: 1.6rem;
@@ -19,8 +19,8 @@
   justify-content: center;
   gap: 0.8rem;
   width: 71.6rem;
-  @media (max-width: 375px) {
-    width: 29rem;
+  @media (max-width: 716px) {
+    width: auto;
   }
 }
 
@@ -37,7 +37,6 @@
 
 .messages {
   color: var(--color-brown-50);
-  font-family: Actor;
   font-size: var(--font-size-20);
   line-height: 2.5rem;
 
@@ -48,12 +47,13 @@
 }
 
 .emptyIcon {
-  width: 15rem;
+  width: 71.6rem;
   height: 15.4rem;
   margin-top: 5.4rem;
   margin-bottom: 3.1rem;
 
   @media (max-width: 716px) {
+    width: auto;
   }
 
   @media (max-width: 375px) {
