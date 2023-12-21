@@ -1,7 +1,6 @@
 .header {
   position: relative;
   width: 100%;
-  max-width: 120rem;
   height: 37.9rem;
   background-color: var(--color-gray-20);
 }
