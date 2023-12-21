@@ -32,19 +32,17 @@ export default function Answer({
 
         {answer ? (
           editCheck ? (
-            <>
-              <form onSubmit={handleAnswerEdit}>
-                <InputTextArea
-                  className={styles.answerTextArea}
-                  placeholder='답변을 입력해주세요'
-                  handleTextareaChange={handleTextareaChange}
-                  value={textareaValue}
-                />
-                <ButtonBox className='darkButton' text={textareaValue}>
-                  수정 완료
-                </ButtonBox>
-              </form>
-            </>
+            <form onSubmit={handleAnswerEdit}>
+              <InputTextArea
+                className={styles.answerTextArea}
+                placeholder='답변을 입력해주세요'
+                handleTextareaChange={handleTextareaChange}
+                value={textareaValue}
+              />
+              <ButtonBox className='darkButton' text={textareaValue}>
+                수정 완료
+              </ButtonBox>
+            </form>
           ) : isRejected ? (
             <p className={styles.reject}>답변 거절</p>
           ) : (

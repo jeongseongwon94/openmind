@@ -71,6 +71,7 @@
   color: var(--color-brown-40);
   font-size: var(--font-size-16);
   font-weight: var(--font-weight-regular);
+  overflow-wrap: break-word;
 }
 
 /* Form : answer(O), isRejected(O) */
@@ -88,7 +89,7 @@
 
 @media screen and (max-width: 375px) {
   .wrap {
-    width: 24.7rem;
+    width: 100%;
   }
 
   .imageSource {

@@ -2,13 +2,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: auto;
+  width: 71.6rem;
   height: auto;
   padding: 1.6rem;
   gap: 1.6rem;
   background-color: var(--color-brown-10);
   border: 0.1rem solid var(--color-brown-20);
   border-radius: 1.6rem;
+  @media (max-width: 716px) {
+    width: auto;
+  }
 }
 
 .text {
@@ -43,15 +46,24 @@
 .emptyIcon {
   width: 15rem;
   height: 15.4rem;
+  margin-top: 5.4rem;
+  margin-bottom: 3.1rem;
+
+  @media (max-width: 716px) {
+  }
 
   @media (max-width: 375px) {
     width: 11.4rem;
     height: 11.8rem;
+    margin-top: 0;
+    margin-right: 9rem;
+    margin-left: 9rem;
   }
 }
 
 .feedCardList {
   display: flex;
   flex-direction: column;
+  width: 100%;
   gap: 2rem;
 }
