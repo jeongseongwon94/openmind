@@ -7,7 +7,7 @@ export default function SnsBox() {
     <ul className={styles.snsContainer}>
       {SNSList.map(({ title, link, imageSrc, altMessage }) => (
         <li key={title}>
-          <a href={link} target="_blank" rel="noreferrer noopener">
+          <a href={link} target='_blank' rel='noreferrer noopener'>
             <img src={imageSrc} alt={altMessage} />
           </a>
         </li>
