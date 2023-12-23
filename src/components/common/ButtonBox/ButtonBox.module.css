@@ -44,7 +44,7 @@
 
 .darkButton:disabled {
   outline: none;
-  background: #9b585f;
+  background: var(--color-brown-60);
   cursor: default;
 }
 

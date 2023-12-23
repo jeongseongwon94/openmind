@@ -8,8 +8,8 @@
 }
 
 .active {
-  color: #9b585f;
-  border: 0.2rem solid #9b585f;
+  color: var(--color-brown-60);
+  border: 0.2rem solid var(--color-brown-60);
 }
 
 .inActive {
