@@ -1,16 +1,14 @@
 import { useState } from 'react';
-import { useLocation } from 'react-router-dom';
 import Toast from './Toast.jsx';
 import linkIcon from '../../../images/linkBrown.svg';
 import styles from './LinkBox.module.css';
 
-export default function LinkBox({ baseURL }) {
-  const location = useLocation();
+export default function LinkBox({ URL }) {
   const [toast, setToast] = useState(false);
   const TOAST_TIME = 5000;
 
   const handleCopyClipBoard = async () => {
-    await navigator.clipboard.writeText(`${baseURL}${location.pathname}`);
+    await navigator.clipboard.writeText(URL);
     setToast(true);
   };
 
