@@ -6,7 +6,7 @@ export default function ShareBox({ baseURL }) {
   return (
     <div className={styles.shareBox}>
       <LinkBox baseURL={baseURL} />
-      <SnsBox />
+      <SnsBox baseURL={baseURL} />
     </div>
   );
 }
