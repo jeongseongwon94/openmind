@@ -1,33 +1,54 @@
 import KakaotalkIcon from '../../../images/kakaoYellow.svg';
 import FacebookIcon from '../../../images/facebookBlue.svg';
+import { useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 import styles from './SnsBox.module.css';
+const { Kakao } = window;
 
-export default function SnsBox() {
+export default function SnsBox({ baseURL }) {
+  const location = useLocation();
+  const URL = `${baseURL}${location.pathname}`;
+
+  useEffect(() => {
+    Kakao.cleanup();
+    Kakao.init('ca3c82cf4a455694e5d40509eeb258ad');
+  }, []);
+
+  const handleShare = ({ title }) => {
+    if (title === 'kakaotalk') {
+      Kakao.Share.sendScrap({
+        requestUrl: URL,
+      });
+    }
+
+    if (title === 'facebook') {
+      window.open(
+        `http://www.facebook.com/sharer/sharer.php?u=${URL}`,
+        '_blank',
+        'width=480, height=700, top=190, left = 720, scrollbars=yes'
+      );
+    }
+  };
+
   return (
     <ul className={styles.snsContainer}>
-      {SNSList.map(({ title, link, imageSrc, altMessage }) => (
-        <li key={title}>
-          <a href={link} target='_blank' rel='noreferrer noopener'>
-            <img src={imageSrc} alt={altMessage} />
-          </a>
+      {SNSList.map(({ title, imageSrc, altMessage }) => (
+        <li key={title} onClick={() => handleShare({ title })}>
+          <img src={imageSrc} alt={altMessage} />
         </li>
       ))}
     </ul>
   );
 }
 
-// SNSList의 Link는 추후 기능 구현 시 수정 필요
-
 const SNSList = [
   {
     title: 'kakaotalk',
-    link: 'https://www.kakaocorp.com/page/',
     imageSrc: KakaotalkIcon,
     altMessage: '카카오톡 공유 페이지로 이동하는 카카오톡 아이콘',
   },
   {
     title: 'facebook',
-    link: 'https://www.facebook.com/',
     imageSrc: FacebookIcon,
     altMessage: '페이스북 공유 페이지로 이동하는 페이스북 아이콘',
   },
