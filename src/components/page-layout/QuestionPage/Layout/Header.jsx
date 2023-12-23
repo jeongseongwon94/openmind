@@ -9,6 +9,7 @@ import styles from './Header.module.css';
 export default function Header() {
   const navigateToListPage = useNavigate();
   const { imageSource, name } = useContext(SubjectDataContext);
+  const CurrentUrl = window.location.href;
 
   return (
     <div className={styles.header}>
@@ -19,7 +20,7 @@ export default function Header() {
         </button>
         <img className={styles.imageSource} src={imageSource} alt='profileImg' />
         <span className={styles.userId}>{name}</span>
-        <ShareBox baseURL='http://127.0.0.1:5173' className={styles.test} />
+        <ShareBox CurrentUrl={CurrentUrl} className={styles.test} />
       </div>
     </div>
   );

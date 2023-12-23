@@ -1,14 +1,10 @@
+import { useEffect } from 'react';
 import KakaotalkIcon from '../../../images/kakaoYellow.svg';
 import FacebookIcon from '../../../images/facebookBlue.svg';
-import { useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
 import styles from './SnsBox.module.css';
+
 const { Kakao } = window;
-
-export default function SnsBox({ baseURL }) {
-  const location = useLocation();
-  const URL = `${baseURL}${location.pathname}`;
-
+export default function SnsBox({ URL }) {
   useEffect(() => {
     Kakao.cleanup();
     Kakao.init('ca3c82cf4a455694e5d40509eeb258ad');
