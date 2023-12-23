@@ -1,18 +1,14 @@
-import { pageArrayInit } from './util';
+import { pageArrayInit, pageCalculator } from './util';
 import styles from './Pagenation.module.css';
 
 export default function Pagenation({ current, total, handleChangeValue, setPage }) {
-  const PAGE_LIMIT = 5;
   const FirstButton = '<<';
   const LastButton = '>>';
   const lt = '<';
   const gt = '>';
-  const PAGE_GROUP = Math.ceil(current / PAGE_LIMIT);
-  const PAGE_LAST = PAGE_GROUP * PAGE_LIMIT > total ? total : PAGE_GROUP * PAGE_LIMIT;
-  const PAGE_FIRST = (PAGE_GROUP - 1) * PAGE_LIMIT + 1 <= 0 ? 1 : (PAGE_GROUP - 1) * PAGE_LIMIT + 1;
-  const NEXT = PAGE_LAST + 1 > total ? total : PAGE_LAST + 1;
-  const PREV = PAGE_FIRST - 1 < 1 ? 1 : PAGE_FIRST - 1;
   const PAGE_ONE = 1;
+  const pageValue = pageCalculator(current, total);
+  const { PAGE_LAST, PAGE_FIRST, NEXT, PREV } = pageValue;
   const pageArray = pageArrayInit(PAGE_FIRST, PAGE_LAST);
 
   return (
