@@ -15,18 +15,21 @@ import styles from './MainSection.module.css';
 export default function MainSection() {
   const { id } = useContext(SubjectDataContext);
   const LIMIT = 3;
-  const page = useIsScrolled();
-  const totalDataUrl = `subjects/${id}/questions/`;
   const url = `subjects/${id}/questions/?limit=${LIMIT}`;
-  const newUrl = `subjects/${id}/questions/?limit=${LIMIT}&offset=${LIMIT * page}`;
   const { data, loading } = useGetData(url);
   const [newData, setNewData] = useState({});
-  const [dataChangeDetection, setDataChangeDetection] = useState(false);
 
+  const { page, setPage, setHasMoreData } = useIsScrolled();
+  const newUrl = `subjects/${id}/questions/?limit=${LIMIT}&offset=${LIMIT * page}`;
+
+  const [dataChangeDetection, setDataChangeDetection] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
 
   const isId = localStorage.getItem('id') == id;
   const { count } = newData;
+  const totalDataUrl = `subjects/${id}/questions/?limit=${count}`;
+
+  const isMobilSize = useIsMobileSize();
 
   useEffect(() => {
     if (!loading) {
@@ -34,6 +37,7 @@ export default function MainSection() {
     }
   }, [loading]);
 
+  //데이터에 변경사항이 생기면 최신 데이터를 호출
   useEffect(() => {
     const getData = async () => {
       try {
@@ -43,6 +47,8 @@ export default function MainSection() {
         console.error('에러가 발생했습니다!');
       } finally {
         setDataChangeDetection(false);
+        setPage(0);
+        setHasMoreData(true);
       }
     };
 
@@ -51,6 +57,7 @@ export default function MainSection() {
     }
   }, [dataChangeDetection]);
 
+  //스크롤을 내리면 추가적인 데이터가 있을 시 호출
   useEffect(() => {
     const getData = async () => {
       try {
@@ -65,6 +72,9 @@ export default function MainSection() {
             };
           }
         });
+        if (response.data.next === null) {
+          setHasMoreData(false);
+        }
       } catch {
         console.error('에러가 발생했습니다!');
       }
@@ -75,12 +85,12 @@ export default function MainSection() {
     }
   }, [page]);
 
-  const isMobilSize = useIsMobileSize();
-
+  // 모달창을 띄우는 함수
   const handleShowModal = () => {
     setModalOpen(true);
   };
 
+  // 전체 데이터를 호출하여 차례대로 삭제
   const handleDeleteButton = async () => {
     try {
       const response = await axiosBaseURL.get(totalDataUrl);
