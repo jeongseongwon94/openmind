@@ -1,4 +1,4 @@
-import Pagenation from '../ui-pagenation/Pagenation';
+import Pagenation from '../Pagenation/Pagenation';
 import styles from './CardPagenation.module.css';
 
 export default function CardPagenation({ count, LIMIT, currentPage, setPage }) {
