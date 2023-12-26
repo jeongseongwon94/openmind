@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import UserCard from '../../components/common/UserCard/ui-card/UserCard';
+import UserCard from '../../components/common/UserCard/UserCard';
 import CardPagenation from '../../components/common/Pagenation/CardPagenation/CardPagenation';
 import DropdownOrder from '../../components/common/DropdownOrder/DropdownOrder';
 import ButtonBox from '../../components/common/ButtonBox/ButtonBox';

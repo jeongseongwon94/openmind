@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 import { SubjectDataContext } from '../../contexts/SubjectDataContext';
 import { useGetData } from '../../hooks/useGetData';
 import MainSection from '../../components/postpage/MainSection/MainSection';
-import Header from '../../components/page-layout/QuestionPage/Layout/Header';
+import Header from '../../components/AnswerPage/Header/Header';
 import styles from './AnswerPage.module.css';
 
 export default function AnswerPage() {

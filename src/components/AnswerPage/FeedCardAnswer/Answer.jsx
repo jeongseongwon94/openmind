@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 
-import ButtonBox from '../ButtonBox/ButtonBox';
-import InputTextArea from '../InputTextarea/InputTextarea';
+import ButtonBox from '../../common/ButtonBox/ButtonBox';
+import InputTextArea from '../../common/InputTextarea/InputTextarea';
 
 import { SubjectDataContext } from '../../../contexts/SubjectDataContext';
 import { getElapsedTime } from '../../../utils/getElapsedTime';

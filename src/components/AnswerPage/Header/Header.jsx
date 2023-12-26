@@ -1,9 +1,9 @@
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { SubjectDataContext } from '../../../../contexts/SubjectDataContext';
-import ShareBox from '../../../common/ShareBox/ShareBox';
-import headerLogo from '../../../../images/logo2.png';
-import headerImg3 from '../../../../images/HeaderImg3.png';
+import { SubjectDataContext } from '../../../contexts/SubjectDataContext';
+import ShareBox from '../../common/ShareBox/ShareBox';
+import headerLogo from '../../../images/logo2.png';
+import headerImg3 from '../../../images/HeaderImg3.png';
 import styles from './Header.module.css';
 
 export default function Header() {
