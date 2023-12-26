@@ -39,7 +39,6 @@
 
 .userId {
   font-size: var(--font-size-32);
-  font-family: Actor;
   color: var(--color-gray-60);
   font-weight: var(--font-weight-medium);
   white-space: nowrap;
