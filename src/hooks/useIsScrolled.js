@@ -2,12 +2,13 @@ import { useState, useEffect } from 'react';
 
 export const useIsScrolled = () => {
   const [page, setPage] = useState(0);
+  const [hasMoreData, setHasMoreData] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
       const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
 
-      if (scrollTop + clientHeight >= scrollHeight) {
+      if (scrollTop + clientHeight >= scrollHeight && hasMoreData) {
         setPage((prevPage) => prevPage + 1);
       }
     };
@@ -17,7 +18,7 @@ export const useIsScrolled = () => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [hasMoreData]);
 
-  return page;
+  return { page, setPage, setHasMoreData };
 };
