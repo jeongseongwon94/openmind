@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
 
-import AnswerMain from '../../page-layout/QuestionPage/Main/AnswerMain';
+import AnswerMain from '../../AnswerPage/FeedCardAnswer/AnswerMain';
 import Badge from '../../common/Badge/Badge';
 import DropdownKebab from '../../common/DropdownKebab/DropdownKebab';
 import Question from '../Question/Question';

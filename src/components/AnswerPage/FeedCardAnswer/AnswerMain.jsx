@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react';
-import Answer from '../../../common/FeedCardAnswer/Answer.jsx';
-import { axiosBaseURL } from '../../../../apis/axiosBaseURL.js';
-import { DataChangeDetectionContext } from '../../../../contexts/DataChangeDetectionContext.js';
+import Answer from './Answer.jsx';
+import { axiosBaseURL } from '../../../apis/axiosBaseURL.js';
+import { DataChangeDetectionContext } from '../../../contexts/DataChangeDetectionContext.js';
 
 export default function AnswerMain({ editCheck, questionId, answer, setEditCheck }) {
   const setDataChangeDetection = useContext(DataChangeDetectionContext);

@@ -1,5 +1,5 @@
 import styles from './UserCard.module.css';
-import messagesIcon from '../../../../images/icons/messages.svg';
+import messagesIcon from '../../../images/icons/messages.svg';
 import { useNavigate } from 'react-router-dom';
 
 export default function UserCard({ name, imageSource, questionCount, id }) {
