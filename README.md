@@ -1,4 +1,4 @@
-<h1 align="center">무엇이든 물어보살</h1>
+<h1 align="center">무엇이든 물어보</h1>
 <p align="center">익명 고민 상담 웹 커뮤니케이션 서비스</p>
 
 ## 프로젝트 소개
