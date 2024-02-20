@@ -118,3 +118,4 @@
 - vercel 배포
 - list 페이지 구현
 - Dropdown, Button/Box 컴포넌트 구현
+- post page 카카오톡/ 페이스북 공유하기 기능 구현
