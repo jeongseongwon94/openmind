@@ -114,26 +114,8 @@
 ![notfound](https://github.com/SprintPart2Team10/openmind/assets/141597336/cfa9b7fb-f59d-4392-a3cf-d9d1efedf89a)
 
 
-## Contributor
-#### [Chyyni](https://github.com/Chyyni)
-- 프로젝트 초기 세팅
-- 메인 페이지, 404 페이지 구현
-- 공통 컴포넌트 - InputField, Badge, Button/Box
-
-#### [jeongseongwon94](https://github.com/jeongseongwon94)
+## 프로젝트 내 기여 부분
 - vercel 배포
 - list 페이지 구현
 - 공통 컴포넌트 - Dropdown, Button/Box
-
-#### [9ummy9](https://github.com/9ummy9)
-- modal 구현
-- 전체 페이지 디자인
-- 공통 컴포넌트 - Button/Box, Button/Share, Toast
-
-#### [ccwnc](https://github.com/ccwnc)
-- post 페이지 구현
-- 공통 컴포넌트 -  Input Text area, Reaction, Button/Floating
-
-#### [uzleem](https://github.com/uzleem)
-- answer 페이지 구현
-- 공통 컴포넌트 - pagenation, user card
+- 전체 프로젝트의 30% 정도 기여 
