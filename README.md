@@ -114,8 +114,7 @@
 ![notfound](https://github.com/SprintPart2Team10/openmind/assets/141597336/cfa9b7fb-f59d-4392-a3cf-d9d1efedf89a)
 
 
-## 프로젝트 내 기여 부분
+## 프로젝트 내 기여도
 - vercel 배포
 - list 페이지 구현
-- 공통 컴포넌트 - Dropdown, Button/Box
-- 전체 프로젝트의 30% 정도 기여 
+- Dropdown, Button/Box 컴포넌트 구현
