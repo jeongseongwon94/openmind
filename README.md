@@ -5,7 +5,7 @@
 
 <img width="963" alt="image" src="https://github.com/SprintPart2Team10/openmind/assets/141597336/f4be09a1-7337-4cca-99ce-aa52a6b6b171">
 
-
+배포 페이지 : openmind-jsw.vercel.app
 ## 개요
 - "무엇이든 물어보살"이라는 방송 프로그램에서 아이디어를 착안해 각 분야의 전문가에게 고민을 상담받는 컨셉의 웹 서비스입니다.
 - 원하는 전문가를 선택해 익명으로 상담을 받거나, 고민을 토로할 수 있습니다.
