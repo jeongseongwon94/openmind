@@ -11,19 +11,19 @@
 <img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=white"> <img src="https://img.shields.io/badge/vite-646CFF?style=for-the-badge&logo=vite&logoColor=white"> <img src="https://img.shields.io/badge/vercel-000000?style=for-the-badge&logo=vercel&logoColor=white">
 
 ## 담당 제작 기능
-- post page
-    - 카카오톡/ 페이스북 공유 기능
-- list page 
-  - 페이지네이션
-  - 드롭다운 정렬
+- post page 개발
+    - 카카오톡/ 페이스북 공유 기능 구현
+- list page 개발
+  - 페이지네이션 기능 구현
+  - 드롭다운 정렬 기능 구현
  
   ![listpage](https://github.com/SprintPart2Team10/openmind/assets/141597336/a428cc04-ed8b-491f-a2dd-6845c9954edc)
 
 ## 트러블 슈팅
-- vercel 환경에서 라우터 이동 후 새로고침을 하면 404에러 발생
 <img width="563" alt="image" src="https://github.com/jeongseongwon94/openmind/assets/148832721/035a05c8-dd51-4239-956b-3aafd7f0eb69">
 
-- 버셀에서 라우터의 위치를 찾을 수 있도록 vercel.json파일을 생성하여 해결
+- vercel 환경에서 라우터 이동 후 새로고침을 하면 404에러 발생 <br>
+  → 버셀에서 라우터의 위치를 찾을 수 있도록 vercel.json파일을 생성하여 해결
 
 ## 배포 링크
 - [LINK](https://openmind-jsw.vercel.app)
